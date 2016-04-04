@@ -35,19 +35,18 @@
 
 #include <cmath>
 #include <sstream>
- 
+
 #include "puppy_regprimitives.hpp"
 
 using namespace Puppy;
 
-
 /*!
  *  \brief Construct Add GP primitive.
  */
-Add::Add() :
-  Primitive(2, "+")
-{ }
-
+Add::Add()
+    : Primitive(2, "+")
+{
+}
 
 /*!
  *  \brief Execute characteristic operation of Add primitive.
@@ -56,27 +55,26 @@ Add::Add() :
  */
 void Add::execute(void* outDatum, Context& ioContext)
 {
-  double& lResult = *(double*)outDatum;
-  double lArg2;
-  getArgument(0, &lResult, ioContext);
-  getArgument(1, &lArg2, ioContext);
-    if(ioContext.useLS) {
+    double& lResult = *(double*)outDatum;
+    double lArg2;
+    getArgument(0, &lResult, ioContext);
+    getArgument(1, &lArg2, ioContext);
+    if (ioContext.useLS) {
         float par = (*ioContext.mTree)[ioContext.mCallStack.back()].parameter;
-        lResult = par*(lResult + lArg2);
+        lResult = par * (lResult + lArg2);
     }
     else {
         lResult = lResult + lArg2;
     }
 }
 
-
 /*!
  *  \brief Construct Subtract GP primitive.
  */
-Subtract::Subtract() :
-  Primitive(2, "-")
-{ }
-
+Subtract::Subtract()
+    : Primitive(2, "-")
+{
+}
 
 /*!
  *  \brief Execute characteristic operation of Subtract primitive.
@@ -85,28 +83,27 @@ Subtract::Subtract() :
  */
 void Subtract::execute(void* outDatum, Context& ioContext)
 {
-  double& lResult = *(double*)outDatum;
-  double lArg2;
-  getArgument(0, &lResult, ioContext);
-  getArgument(1, &lArg2, ioContext);
-  if(ioContext.useLS) {
-      float par = (*ioContext.mTree)[ioContext.mCallStack.back()].parameter;
-      lResult = par*(lResult - lArg2);
-  }
-  else {
-      lResult = lResult - lArg2;
-  }
-  //lResult -= lArg2;
+    double& lResult = *(double*)outDatum;
+    double lArg2;
+    getArgument(0, &lResult, ioContext);
+    getArgument(1, &lArg2, ioContext);
+    if (ioContext.useLS) {
+        float par = (*ioContext.mTree)[ioContext.mCallStack.back()].parameter;
+        lResult = par * (lResult - lArg2);
+    }
+    else {
+        lResult = lResult - lArg2;
+    }
+    //lResult -= lArg2;
 }
-
 
 /*!
  *  \brief Construct Multiply GP primitive.
  */
-Multiply::Multiply() :
-  Primitive(2, "*")
-{ }
-
+Multiply::Multiply()
+    : Primitive(2, "*")
+{
+}
 
 /*!
  *  \brief Execute characteristic operation of Multiply primitive.
@@ -115,21 +112,20 @@ Multiply::Multiply() :
  */
 void Multiply::execute(void* outDatum, Context& ioContext)
 {
-  double& lResult = *(double*)outDatum;
-  double lArg2;
-  getArgument(0, &lResult, ioContext);
-  getArgument(1, &lArg2, ioContext);
-  lResult *= lArg2;
+    double& lResult = *(double*)outDatum;
+    double lArg2;
+    getArgument(0, &lResult, ioContext);
+    getArgument(1, &lArg2, ioContext);
+    lResult *= lArg2;
 }
-
 
 /*!
  *  \brief Construct Divide GP primitive.
  */
-Divide::Divide() :
-  Primitive(2, "/")
-{ }
-
+Divide::Divide()
+    : Primitive(2, "/")
+{
+}
 
 /*!
  *  \brief Execute characteristic operation of Divide primitive.
@@ -138,30 +134,31 @@ Divide::Divide() :
  */
 void Divide::execute(void* outDatum, Context& ioContext)
 {
-  double& lResult = *(double*)outDatum;
-  double lArg2;
-  getArgument(1, &lArg2, ioContext);
-  if(std::fabs(lArg2) < 0.001) lResult = 1.0;
-  else {
-    getArgument(0, &lResult, ioContext);
-    if(ioContext.useLS) {
-        float par = (*ioContext.mTree)[ioContext.mCallStack.back()].parameter;
-        lResult = par*(lResult / lArg2);
-    }
+    double& lResult = *(double*)outDatum;
+    double lArg2;
+    getArgument(1, &lArg2, ioContext);
+    if (std::fabs(lArg2) < 0.001)
+        lResult = 1.0;
     else {
-        lResult = lResult / lArg2;
+        getArgument(0, &lResult, ioContext);
+        if (ioContext.useLS) {
+            float par = (*ioContext.mTree)[ioContext.mCallStack.back()].parameter;
+            lResult = par * (lResult / lArg2);
+        }
+        else {
+            lResult = lResult / lArg2;
+        }
+        //lResult /= lArg2;
     }
-    //lResult /= lArg2;
-  }
 }
 
 /*!
  *  \brief Construct Sin GP primitive.
  */
-Sin::Sin() :
-  Primitive(1, "SIN")
-{ }
-
+Sin::Sin()
+    : Primitive(1, "SIN")
+{
+}
 
 /*!
  *  \brief Execute characteristic operation of Sin primitive.
@@ -170,24 +167,24 @@ Sin::Sin() :
  */
 void Sin::execute(void* outDatum, Context& ioContext)
 {
-  double& lResult = *(double*)outDatum;
-  getArgument(0, &lResult, ioContext);
-  if(ioContext.useLS) {
-      float par = (*ioContext.mTree)[ioContext.mCallStack.back()].parameter;
-      lResult = par*std::sin(lResult);
-  }
-  else
-      lResult = std::sin(lResult);
-  //lResult = std::sin(lResult);
+    double& lResult = *(double*)outDatum;
+    getArgument(0, &lResult, ioContext);
+    if (ioContext.useLS) {
+        float par = (*ioContext.mTree)[ioContext.mCallStack.back()].parameter;
+        lResult = par * std::sin(lResult);
+    }
+    else
+        lResult = std::sin(lResult);
+    //lResult = std::sin(lResult);
 }
 
 /*!
  *  \brief Construct Cos GP primitive.
  */
-Cos::Cos() :
-  Primitive(1, "COS")
-{ }
-
+Cos::Cos()
+    : Primitive(1, "COS")
+{
+}
 
 /*!
  *  \brief Execute characteristic operation of cos primitive.
@@ -196,24 +193,24 @@ Cos::Cos() :
  */
 void Cos::execute(void* outDatum, Context& ioContext)
 {
-  double& lResult = *(double*)outDatum;
-  getArgument(0, &lResult, ioContext);
-  if(ioContext.useLS) {
-      float par = (*ioContext.mTree)[ioContext.mCallStack.back()].parameter;
-      lResult = par*std::cos(lResult);
-  }
-  else
-      lResult = std::cos(lResult);
-  //lResult = std::cos(lResult);
+    double& lResult = *(double*)outDatum;
+    getArgument(0, &lResult, ioContext);
+    if (ioContext.useLS) {
+        float par = (*ioContext.mTree)[ioContext.mCallStack.back()].parameter;
+        lResult = par * std::cos(lResult);
+    }
+    else
+        lResult = std::cos(lResult);
+    //lResult = std::cos(lResult);
 }
 
 /*!
  *  \brief Construct Log GP primitive.
  */
-Log::Log() :
-  Primitive(1, "LOG")
-{ }
-
+Log::Log()
+    : Primitive(1, "LOG")
+{
+}
 
 /*!
  *  \brief Execute characteristic operation of log primitive.
@@ -222,27 +219,28 @@ Log::Log() :
  */
 void Log::execute(void* outDatum, Context& ioContext)
 {
-  double& lResult = *(double*)outDatum;
-  getArgument(0, &lResult, ioContext);
-  if(fabs(lResult) > 0.000001){
-      if(ioContext.useLS) {
-          float par = (*ioContext.mTree)[ioContext.mCallStack.back()].parameter;
-          lResult = par*log(fabs(lResult));
-      }
-      else
-          lResult = log(fabs(lResult));
-      //lResult = log(fabs(lResult));
-  }
-  else lResult = 1.;
+    double& lResult = *(double*)outDatum;
+    getArgument(0, &lResult, ioContext);
+    if (fabs(lResult) > 0.000001) {
+        if (ioContext.useLS) {
+            float par = (*ioContext.mTree)[ioContext.mCallStack.back()].parameter;
+            lResult = par * log(fabs(lResult));
+        }
+        else
+            lResult = log(fabs(lResult));
+        //lResult = log(fabs(lResult));
+    }
+    else
+        lResult = 1.;
 }
 
 /*!
  *  \brief Construct Exp GP primitive.
  */
-Exp::Exp() :
-  Primitive(1, "EXP")
-{ }
-
+Exp::Exp()
+    : Primitive(1, "EXP")
+{
+}
 
 /*!
  *  \brief Execute characteristic operation of exp primitive.
@@ -251,26 +249,27 @@ Exp::Exp() :
  */
 void Exp::execute(void* outDatum, Context& ioContext)
 {
-  double& lResult = *(double*)outDatum;
-  getArgument(0, &lResult, ioContext);
-  if(lResult < 80.) {
-      if(ioContext.useLS) {
-          float par = (*ioContext.mTree)[ioContext.mCallStack.back()].parameter;
-          lResult = par*std::exp(lResult);
-      }
-      else
-        lResult = std::exp(lResult);
-  }
-  else lResult = 1.;
+    double& lResult = *(double*)outDatum;
+    getArgument(0, &lResult, ioContext);
+    if (lResult < 80.) {
+        if (ioContext.useLS) {
+            float par = (*ioContext.mTree)[ioContext.mCallStack.back()].parameter;
+            lResult = par * std::exp(lResult);
+        }
+        else
+            lResult = std::exp(lResult);
+    }
+    else
+        lResult = 1.;
 }
 
 /*!
  *  \brief Construct ephemeral random constant generator primitive.
  */
-Ephemeral::Ephemeral() :
-  Primitive(0, "E")
-{ }
-
+Ephemeral::Ephemeral()
+    : Primitive(0, "E")
+{
+}
 
 /*!
  *  \brief Dummy function, ephemeral primitive is used only to generate constants.
@@ -278,8 +277,8 @@ Ephemeral::Ephemeral() :
  *  \param ioContext Evolutionary context.
  */
 void Ephemeral::execute(void* outDatum, Context& ioContext)
-{ }
-
+{
+}
 
 /*!
  *  \brief Generate random constant and return as primitive handle.
@@ -287,8 +286,8 @@ void Ephemeral::execute(void* outDatum, Context& ioContext)
  */
 PrimitiveHandle Ephemeral::giveReference(Context& ioContext)
 {
-  double lValue = ioContext.mRandom.rollUniform(-1.0, 1.0);
-  std::ostringstream lOSS;
-  lOSS << lValue;
-  return new TokenT<double>(lOSS.str(), lValue);
+    double lValue = ioContext.mRandom.rollUniform(-1.0, 1.0);
+    std::ostringstream lOSS;
+    lOSS << lValue;
+    return new TokenT<double>(lOSS.str(), lValue);
 }

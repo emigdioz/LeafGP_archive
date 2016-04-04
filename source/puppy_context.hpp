@@ -46,8 +46,7 @@
 
 namespace Puppy {
 
-class Tree;  // Forward declaration
-
+class Tree; // Forward declaration
 
 /*!
  *  \class Context puppy/Context.hpp "puppy/Context.hpp"
@@ -60,38 +59,36 @@ class Tree;  // Forward declaration
 class Context {
 
 public:
-
-  /*!
+    /*!
    *  \brief Build an evolutionary context.
    */
-  inline Context() :
-    mTree(NULL)
-  { }
+    inline Context()
+        : mTree(NULL)
+    {
+    }
 
-
-  /*!
+    /*!
    *  \brief Add a new primitive in the sets of primitive.
    *  \param inPrimitive Primitive added.
    */
-  inline void insert(PrimitiveHandle inPrimitive)
-  {
-    assert(mPrimitiveMap.find(inPrimitive->getName()) == mPrimitiveMap.end());
-    mPrimitiveMap[inPrimitive->getName()] = inPrimitive;
-    if(inPrimitive->getNumberArguments() == 0) mTerminalSet.push_back(inPrimitive);
-    else mFunctionSet.push_back(inPrimitive);
-  }
-  
-  Randomizer                            mRandom;        //!< Random number generator.
-  std::vector<PrimitiveHandle>          mFunctionSet;   //!< Set of functions usable to build trees.
-  std::vector<PrimitiveHandle>          mTerminalSet;   //!< Set of terminals usable to build trees.
-  std::map<std::string,PrimitiveHandle> mPrimitiveMap;  //!< Name-primitive map.
-  std::vector<unsigned int>             mCallStack;     //!< Execution call stack.
-  Tree*                                 mTree;          //!< Actual tree evaluated.
-  bool                                  useLS;
-      
+    inline void insert(PrimitiveHandle inPrimitive)
+    {
+        assert(mPrimitiveMap.find(inPrimitive->getName()) == mPrimitiveMap.end());
+        mPrimitiveMap[inPrimitive->getName()] = inPrimitive;
+        if (inPrimitive->getNumberArguments() == 0)
+            mTerminalSet.push_back(inPrimitive);
+        else
+            mFunctionSet.push_back(inPrimitive);
+    }
+
+    Randomizer mRandom; //!< Random number generator.
+    std::vector<PrimitiveHandle> mFunctionSet; //!< Set of functions usable to build trees.
+    std::vector<PrimitiveHandle> mTerminalSet; //!< Set of terminals usable to build trees.
+    std::map<std::string, PrimitiveHandle> mPrimitiveMap; //!< Name-primitive map.
+    std::vector<unsigned int> mCallStack; //!< Execution call stack.
+    Tree* mTree; //!< Actual tree evaluated.
+    bool useLS;
 };
-
 }
-
 
 #endif // Puppy_Context_hpp

@@ -40,7 +40,6 @@
 #include <cstdlib>
 #include <ctime>
 
-
 namespace Puppy {
 
 /*!
@@ -53,19 +52,15 @@ namespace Puppy {
 class Randomizer {
 
 public:
+    Randomizer() {}
 
-  Randomizer() { }
+    inline unsigned long operator()(unsigned long inN);
 
-  inline unsigned long operator()(unsigned long inN);
-
-  inline long   rollInteger(long inLow, long inUp);
-  inline double rollUniform(double inLow=0.0, double inUp=1.0);
-  inline void   seed(unsigned long inSeed=0);
-
+    inline long rollInteger(long inLow, long inUp);
+    inline double rollUniform(double inLow = 0.0, double inUp = 1.0);
+    inline void seed(unsigned long inSeed = 0);
 };
-
 }
-
 
 /*!
  *  \brief Generate a randomly generated integer in range [0,inN).
@@ -73,11 +68,10 @@ public:
  */
 inline unsigned long Puppy::Randomizer::operator()(unsigned long inN)
 {
-  assert(inN > 0);
-  assert(inN <= RAND_MAX);
-  return (unsigned long)(double(inN) * double(std::rand()) / double(RAND_MAX+1.0));
+    assert(inN > 0);
+    assert(inN <= RAND_MAX);
+    return (unsigned long)(double(inN) * double(std::rand()) / double(RAND_MAX + 1.0));
 }
-
 
 /*!
  *  \brief Generate a randomly generated integer in range [inLow,inUp].
@@ -87,11 +81,10 @@ inline unsigned long Puppy::Randomizer::operator()(unsigned long inN)
  */
 inline long Puppy::Randomizer::rollInteger(long inLow, long inUp)
 {
-  assert(inLow <= inUp);
-  assert((inUp-inLow) < RAND_MAX);
-  return inLow + (long)(double(inUp-inLow+1.0) * double(std::rand()) / double(RAND_MAX+1.0));
+    assert(inLow <= inUp);
+    assert((inUp - inLow) < RAND_MAX);
+    return inLow + (long)(double(inUp - inLow + 1.0) * double(std::rand()) / double(RAND_MAX + 1.0));
 }
-
 
 /*!
  *  \brief Generate a uniformly generated random real number in range [inLow,inUp).
@@ -101,10 +94,9 @@ inline long Puppy::Randomizer::rollInteger(long inLow, long inUp)
  */
 inline double Puppy::Randomizer::rollUniform(double inLow, double inUp)
 {
-  assert(inLow <= inUp);
-  return inLow + ((inUp-inLow) * double(std::rand()) / double(RAND_MAX+1.0));
+    assert(inLow <= inUp);
+    return inLow + ((inUp - inLow) * double(std::rand()) / double(RAND_MAX + 1.0));
 }
-
 
 /*!
  *  \brief Initialize the random number generator.
@@ -113,9 +105,10 @@ inline double Puppy::Randomizer::rollUniform(double inLow, double inUp)
  */
 inline void Puppy::Randomizer::seed(unsigned long inSeed)
 {
-  if(inSeed == 0) std::srand((unsigned int)std::time(NULL));
-  else std::srand(inSeed);
+    if (inSeed == 0)
+        std::srand((unsigned int)std::time(NULL));
+    else
+        std::srand(inSeed);
 }
-
 
 #endif // Puppy_Randomizer_hpp

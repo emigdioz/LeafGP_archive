@@ -40,10 +40,9 @@
 
 #include "puppy_primitivehandle.hpp"
 
-
 namespace Puppy {
 
-class Context;  // Forward declaration.
+class Context; // Forward declaration.
 
 /*!
  *  \class Primitive puppy/Primitive.hpp "puppy/Primitive.hpp"
@@ -59,45 +58,36 @@ class Context;  // Forward declaration.
 class Primitive {
 
 public:
+    explicit Primitive(unsigned int inNumberArguments = 0, std::string inName = "");
+    Primitive(const Primitive& inRightPrimit);
+    virtual ~Primitive() {}
 
-  explicit Primitive(unsigned int inNumberArguments=0, std::string inName="");
-           Primitive(const Primitive& inRightPrimit);
-  virtual ~Primitive() { }
+    Primitive& operator=(const Primitive& inRightPrimit);
 
-  Primitive& operator=(const Primitive& inRightPrimit);
-  
-  /*!
+    /*!
    *  \brief Execute the caracteristic primitive operation.
    *  \param outDatum Result of the execution.
    *  \param ioContext Evolutionary context.
    */
-  virtual void execute(void* outDatum, Context& ioContext) =0;
+    virtual void execute(void* outDatum, Context& ioContext) = 0;
 
-  inline  std::string     getName() const;
-  inline  unsigned int    getNumberArguments() const;
-  virtual PrimitiveHandle giveReference(Context& ioContext);
-  inline  Primitive*      refer();
-  virtual void            setValue(const void* inValue);
-  inline  void            unrefer();
-  
+    inline std::string getName() const;
+    inline unsigned int getNumberArguments() const;
+    virtual PrimitiveHandle giveReference(Context& ioContext);
+    inline Primitive* refer();
+    virtual void setValue(const void* inValue);
+    inline void unrefer();
+
 protected:
+    inline void getArgument(unsigned int inN, void* outResult, Context& ioContext);
+    void setName(std::string inName);
+    void setNumberArguments(unsigned int inNumberArguments);
 
-  inline void getArgument(unsigned int inN, void* outResult, Context& ioContext);
-         void setName(std::string inName);
-         void setNumberArguments(unsigned int inNumberArguments);
-  
 private:
-
-  std::string  mName;             //!< Name of the primitive.
-  unsigned int mNumberArguments;  //!< Number of arguments of the primitive.
-  unsigned int mRefCounter;       //!< Primitive's reference counter.
-   
+    std::string mName; //!< Name of the primitive.
+    unsigned int mNumberArguments; //!< Number of arguments of the primitive.
+    unsigned int mRefCounter; //!< Primitive's reference counter.
 };
-
 }
 
-
 #endif // Puppy_Primitive_hpp
-
-
- 

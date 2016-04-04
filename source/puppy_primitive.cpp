@@ -41,29 +41,28 @@
 #include "puppy_tree.hpp"
 #include "puppy_tokenT.hpp"
 
-
 /*!
  *  \brief Construct a primitive.
  *  \param inNumberArguments Number of arguments of the primitive.
  *  \param inName Name of the primitive.
  */
-Puppy::Primitive::Primitive(unsigned int inNumberArguments, std::string inName) :
-  mName(inName),
-  mNumberArguments(inNumberArguments),
-  mRefCounter(0)
-{ }
-
+Puppy::Primitive::Primitive(unsigned int inNumberArguments, std::string inName)
+    : mName(inName)
+    , mNumberArguments(inNumberArguments)
+    , mRefCounter(0)
+{
+}
 
 /*!
  *  \brief Copy-construct a primitive.
  *  \param inRightPrimit Primitive to copy.
  */
-Puppy::Primitive::Primitive(const Primitive& inRightPrimit):
-  mName(inRightPrimit.mName),
-  mNumberArguments(inRightPrimit.mNumberArguments),
-  mRefCounter(0)
-{ }
-
+Puppy::Primitive::Primitive(const Primitive& inRightPrimit)
+    : mName(inRightPrimit.mName)
+    , mNumberArguments(inRightPrimit.mNumberArguments)
+    , mRefCounter(0)
+{
+}
 
 /*!
  *  \brief Copy a primitive.
@@ -71,12 +70,12 @@ Puppy::Primitive::Primitive(const Primitive& inRightPrimit):
  */
 Puppy::Primitive& Puppy::Primitive::operator=(const Puppy::Primitive& inRightPrimit)
 {
-  if(this == &inRightPrimit) return *this;
-  mName = inRightPrimit.mName;
-  mNumberArguments = inRightPrimit.mNumberArguments;
-  return *this;
+    if (this == &inRightPrimit)
+        return *this;
+    mName = inRightPrimit.mName;
+    mNumberArguments = inRightPrimit.mNumberArguments;
+    return *this;
 }
-
 
 /*!
  *  \brief Give a reference on the actual primitive.
@@ -85,9 +84,8 @@ Puppy::Primitive& Puppy::Primitive::operator=(const Puppy::Primitive& inRightPri
  */
 Puppy::PrimitiveHandle Puppy::Primitive::giveReference(Puppy::Context& ioContext)
 {
-  return this;
+    return this;
 }
-
 
 /*!
  *  \brief Set the name of the primitive.
@@ -95,9 +93,8 @@ Puppy::PrimitiveHandle Puppy::Primitive::giveReference(Puppy::Context& ioContext
  */
 void Puppy::Primitive::setName(std::string inName)
 {
-  mName = inName;
+    mName = inName;
 }
-
 
 /*!
  *  \brief Set the number of arguments of the primitive.
@@ -105,14 +102,13 @@ void Puppy::Primitive::setName(std::string inName)
  */
 void Puppy::Primitive::setNumberArguments(unsigned int inNumberArguments)
 {
-  mNumberArguments = inNumberArguments;
+    mNumberArguments = inNumberArguments;
 }
-
 
 /*!
  *  \brief Set the value of the primitive (do nothing for basic primitive).
  *  \param inValue New value to use.
  */
 void Puppy::Primitive::setValue(const void* inValue)
-{ }
-
+{
+}

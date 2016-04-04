@@ -1,3 +1,37 @@
+/****************************************************************************
+ * LeafGP
+ *  Copyright (C) 2016 by Emigdio Z-Flores
+ *  emigdioz@gmail.com
+ *
+ * $LEAFGP_BEGIN_LICENSE:LGPL$
+ *
+ * This work is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the license, or (at your option) any later version.
+ * This work is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * LICENSE.txt for more details.
+ *
+ * $LEAFGP_END_LICENSE$
+ *
+ * Contact:
+ * Posgrado de Ciencias de la Ingenieria
+ * Instituto Tecnologico de Tijuana
+ * Tree-lab research group
+ * http://www.tree-lab.org
+ *
+****************************************************************************/
+
+/*!
+ *  \file   source/mainGP.cpp
+ *  \brief  Main GP evolutive loop
+ *  \author Emigdio Z.Flores
+ *  $Revision: 1.0 $
+ *  $Date: 2016/04/04 $
+ */
+
 #include <cstdlib>
 #include <cmath>
 #include <iostream>
@@ -36,58 +70,11 @@
 
 using namespace Puppy;
 
-// unsigned int evaluateFitness(std::vector<Tree>& ioPopulation,
-//                             Context& ioContext,
-//                             double* inX,
-//                             double* inF,int cols, int rows, std::vector<bool>
-//                             &terSelection);
-
-// unsigned int evaluateFitness_multithread(std::vector<Tree>& ioPopulation,
-//                             Context& ioContext,
-//                             double* inX,
-//                             double* inF, int cols, int rows,
-//                             std::vector<bool> &terSelection, bool
-//                             multithread);
-
-// unsigned int evaluateFitnessTesting(Tree &individual,
-//                             Context& ioContext,
-//                             double* inX,
-//                             double* inF,int cols, int rows, std::vector<bool>
-//                             &terSelection);
-
-// unsigned int evaluateFitnessTraining(Tree &individual,
-//                             Context& ioContext,
-//                             double* inX,
-//                             double* inF,int cols, int rows, std::vector<bool>
-//                             &terSelection);
-
-// int applyLS(Tree &individual, Context& ioContext, double* inX, double* inF,
-// int cols, int rows, std::vector<bool> &terSelection, float &oriFit, float
-// &optFit);
 void objFunc(double* p, double* x, int m, int n, void* data);
-
-//struct OneTree {
-//    Tree selTree;
-//    double* inX;
-//    double* inF;
-//    int rows;
-//    int cols;
-//    std::vector<bool> terSelection;
-//    Context ioContext;
-//};
-
-int single_ind_fitness(const int &ind);
+int single_ind_fitness(const int& ind);
 void reduce(QVector<Tree>& result, const Tree& partial);
-int mapfunction(const int &ind);
-//Tree mapIndividual(const OneTree &element);
-//QVector<Tree> start_fit_check(QVector<OneTree> all);
+int mapfunction(const int& ind);
 
-/*!
- *  \brief Program main routine.
- *  \param argc Number of arguments given on the command-line.
- *  \param argv Command-line arguments.
- *  \ingroup SymbReg
- */
 int Worker::start_main(void)
 {
     // Create parameter variables with default values.
@@ -117,7 +104,7 @@ int Worker::start_main(void)
     lMutStdProba = mutationp;
     lMutMaxRegenDepth = mutationmaxr;
     lSeed = randomseed;
-
+    // Temporal (output through qDebug)
     qDebug() << "BEAGLE Puppy symbolic regression";
     qDebug() << "Copyright 2001-2004 by Christian Gagne and Marc Parizeau";
     qDebug() << "Parameters used are:";
@@ -139,7 +126,7 @@ int Worker::start_main(void)
     qDebug() << " Swap point mutation distribution proba.:   "
              << lMutSwapDistribProba;
     qDebug() << " Random number generator seed value:        " << lSeed;
-
+    // Signaling to UI thread
     emit valueChanged(" Population size:                           " + QString::number(lPopSize));
     emit valueChanged(" Number of generations:                     " + QString::number(lNbrGen));
     emit valueChanged(" Number participants tournament:            " + QString::number(lNbrPartTournament));
@@ -154,19 +141,15 @@ int Worker::start_main(void)
     emit valueChanged(" Swap point mutation probability:           " + QString::number(lMutSwapProba));
     emit valueChanged(" Swap point mutation distribution proba.:   " + QString::number(lMutSwapDistribProba));
     emit valueChanged(" Random number generator seed value:        " + QString::number(lSeed));
-
     emit GPstarted("Stop");
     qDebug() << "Creating evolution context";
     emit valueChanged("Creating evolution context");
     Context lContext;
 
-    // ++++++++++
-    // +   LS
-    // ++++++++++
-
+    // LS flag
     lContext.useLS = LSactivated;
-
     lContext.mRandom.seed(lSeed);
+    // User selected functions
     emit valueChanged("Function set selected");
     if (functionselection.at(0)) {
         emit valueChanged("Add");
@@ -264,12 +247,10 @@ int Worker::start_main(void)
     emit valueChanged("Initializing population");
     initializePopulation(lPopulation, lContext, lInitGrowProba, lMinInitDepth,
         lMaxInitDepth);
-    // evaluateSymbReg(lPopulation, lContext, lX, lF);
-    // temporal
 
+    // Evaluate initial population
     evaluateFitness_multithread(lPopulation, lContext, trainingIn, trainingOut,
-        dataset_cols - 1, size_training, terminalselection,multicore_activated);
-
+        dataset_cols - 1, size_training, terminalselection, multicore_activated);
     Stats GPthis;
     QString message;
     double bfitTrain, bfitTest, avgSize;
@@ -286,6 +267,7 @@ int Worker::start_main(void)
     float preFitness, optFitness;
 
     datafit.data = new double*[lNbrGen];
+
     // prefill population empty fitness data
     for (i = 0; i < lNbrGen; ++i) {
         datafit.data[i] = new double[lPopSize];
@@ -296,36 +278,27 @@ int Worker::start_main(void)
     unsigned long nEvalFunc = 0;
 
     // Evolve population for the given number of generations
-
     qDebug() << "Starting evolution";
     emit valueChanged("Starting evolution");
     for (i = 1; i <= lNbrGen; ++i) {
         applySelectionTournament(lPopulation, lContext, lNbrPartTournament);
-        applyCrossover(lPopulation, lContext, lCrossoverProba, lCrossDistribProba,
-            lMaxDepth);
-        applyMutationStandard(lPopulation, lContext, lMutStdProba,
-            lMutMaxRegenDepth, lMaxDepth);
+        applyCrossover(lPopulation, lContext, lCrossoverProba, lCrossDistribProba, lMaxDepth);
+        applyMutationStandard(lPopulation, lContext, lMutStdProba, lMutMaxRegenDepth, lMaxDepth);
         applyMutationSwap(lPopulation, lContext, lMutSwapProba,
             lMutSwapDistribProba);
-        // temporal
-
         nEvalFunc += evaluateFitness_multithread(lPopulation, lContext, trainingIn, trainingOut,
-            dataset_cols - 1, size_training, terminalselection,multicore_activated);
-
+            dataset_cols - 1, size_training, terminalselection, multicore_activated);
         calculateStats(lPopulation, i, message, GPthis.train, bindex,
             GPthis.avgsize, GPthis.maxsize, GPthis.minsize);
         nEvalFunc += evaluateFitnessTesting(
             lPopulation[bindex], lContext, testingIn, testingOut, dataset_cols - 1,
             (dataset_rows - size_training), terminalselection);
-
         GPthis.test = lPopulation[bindex].rFitnessTest;
         GPthis.gen = i;
-
         lPopulation[bindex].write_qstring(output);
         qDebug() << i << " Train: " << lPopulation[bindex].mFitness
                  << " Test: " << lPopulation[bindex].mFitnessTest << " " << output;
         output.clear();
-
         if (lContext.useLS) {
             qDebug() << "Start";
             applyLS(lPopulation[bindex], lContext, trainingIn, trainingOut,
@@ -334,18 +307,18 @@ int Worker::start_main(void)
             qDebug() << "End [Original: " << preFitness
                      << " Optimized: " << optFitness;
         }
-
         emit valueChanged(message);
         emit send_stats(GPthis);
         progress_float = (i / (float)lNbrGen) * 100;
         emit progressChanged((int)progress_float);
         emit sendEvalFunc(nEvalFunc);
+
         // fill population fitness data
-        // datafit.data[i-1] = new double[lPopSize];
         for (int j = 0; j < lPopSize; j++) {
             datafit.data[i - 1][j] = lPopulation[j].mFitness;
         }
         emit plot3DSendData(datafit);
+
         // Checks if the process should be aborted
         mutex.lock();
         abort = _abort;
@@ -375,9 +348,7 @@ int Worker::start_main(void)
         chosenTree.index.append(-1);
     }
     emit send_tree(chosenTree);
-
     lBestIndividual[0].write_qstring(output);
-
     emit valueChanged("Best individual at generation " + QString::number(i - 1) + " is: " + output + " with fitness: " + QString::number(lBestIndividual[0].mFitness));
     emit send_tree_string(output); // Prefix syntax
     output.clear();
@@ -386,7 +357,6 @@ int Worker::start_main(void)
     output.clear();
     lBestIndividual[0].write_qstring_latex(output);
     emit send_tree_latex_string(output); // Latex syntax
-
     emit send_stats_end(GPthis);
 
     // Clean up data
@@ -435,6 +405,8 @@ unsigned int Worker::evaluateFitness(std::vector<Tree>& ioPopulation,
     return lNbrEval;
 }
 
+// Depending on the multi-core selection fitness will be calculated locally or the thread will be paused and send it to UI where it will
+// run parallely
 unsigned int Worker::evaluateFitness_multithread(
     std::vector<Tree>& ioPopulation, Context& ioContext, double* inX,
     double* inF, int cols, int rows, std::vector<bool>& terSelection,
@@ -444,7 +416,7 @@ unsigned int Worker::evaluateFitness_multithread(
     double rowV, lQuadErr, lResult, lErr, lRMS;
     unsigned int lNbrEval = 0, i, j, k;
     int popsize = ioPopulation.size();
-    // Copy population to QVector    
+    // Copy population to QVector
     wholePop.cols = cols;
     wholePop.rows = rows;
     wholePop.inF = inF;
@@ -453,37 +425,26 @@ unsigned int Worker::evaluateFitness_multithread(
     wholePop.terSelection = terSelection;
     wholePop.bunchTrees.resize(0);
     for (i = 0; i < popsize; ++i)
-        wholePop.bunchTrees.append(ioPopulation[i]);    
+        wholePop.bunchTrees.append(ioPopulation[i]);
     if (multithread) {
-        //for(i=0;i<popsize;i++)
-        //  input.append(ioPopulation.at(i));
-        //wholePop = start_fit_check(allpop);
-
-//          for (i = 0; i < popsize; ++i)
-//            ioPopulation[i] = wholePop[i];
         fitnessValidFinished = false;
         toSuspend = true;
         emit requestFitnessCalc(wholePop);
-        if(toSuspend) {
-          mutex.lock();
-          waitCondition.wait(&mutex);
-          mutex.unlock();
+        if (toSuspend) {
+            mutex.lock();
+            waitCondition.wait(&mutex);
+            mutex.unlock();
         }
-        while(!fitnessValidFinished);
-        qDebug()<<"Data is almost ready";
-
+        while (!fitnessValidFinished);
+        qDebug() << "Data is almost ready";
         QVector<Tree> tempdata = fitnessValid;
         for (i = 0; i < popsize; ++i) {
-          ioPopulation[i] = tempdata.at(i);
+            ioPopulation[i] = tempdata.at(i);
         }
-        //evaluateFitness(ioPopulation,ioContext,inX,inF,cols,rows,terSelection);
-
-      //QVector<Tree> output = QtConcurrent::blockingMappedReduced(input,mapfunction,reduce,QtConcurrent::OrderedReduce);
-      //evaluateFitness(ioPopulation,ioContext,inX,inF,cols,rows,terSelection);
     }
     else
-      evaluateFitness(ioPopulation,ioContext,inX,inF,cols,rows,terSelection);
-    return popsize; //
+        evaluateFitness(ioPopulation, ioContext, inX, inF, cols, rows, terSelection);
+    return popsize;
 }
 
 unsigned int Worker::evaluateFitnessTesting(Tree& individual,
@@ -551,6 +512,7 @@ unsigned int Worker::evaluateFitnessTraining(Tree& individual,
     return lNbrEval;
 }
 
+// Main LS calculation
 int Worker::applyLS(Tree& individual, Context& ioContext, double* inX,
     double* inF, int cols, int rows,
     std::vector<bool>& terSelection, float& oriFit,
@@ -576,6 +538,7 @@ int Worker::applyLS(Tree& individual, Context& ioContext, double* inX,
     int m = counter; // Number of parameters
     int n = rows; // Number of instances
     double p[m], x[n];
+
     // Parameter initialization
     for (unsigned int i = 0; i < m; i++) {
         p[i] = 0.5;
@@ -590,11 +553,13 @@ int Worker::applyLS(Tree& individual, Context& ioContext, double* inX,
     // Real output
     for (int j = 0; j < rows; j++)
         x[j] = inF[j];
+
     // Do Levenberg-Marquardt optimization
     ret = dlevmar_dif(objFunc, p, x, m, n, 100, NULL, info, NULL, NULL,
         &bufferTree);
     qDebug() << info[5] << " iterations";
     qDebug() << info[7] << " function evaluations";
+
     // Update optimized parameters in tree
     counter = 0;
     for (unsigned int i = 0; i < tmpInd.size(); i++) {
@@ -632,18 +597,19 @@ int Worker::applyLS(Tree& individual, Context& ioContext, double* inX,
         //      counter += 1;
         //    }
     }
-    // objFunc(p,x,m,n,&bufferTree);
     evaluateFitnessTraining(tmpInd, ioContext, inX, inF, cols, rows,
         terSelection);
     optFit = tmpInd.rFitness;
 }
 
+// LS objective function
 void objFunc(double* p, double* x, int m, int n, void* data)
 {
     std::stringstream var;
     Worker::OneTree* dptr;
     dptr = (Worker::OneTree*)data;
     int counter = 0;
+
     // Retrieve parameter and update node parameter (here, only selected nodes are
     // used by updating its values)
     for (unsigned int i = 0; i < dptr->selTree.size(); i++) {
@@ -681,11 +647,13 @@ void objFunc(double* p, double* x, int m, int n, void* data)
         //      counter += 1;
         //    }
     }
+
     // Evaluate row wise
     double rowV;
     double lResult;
     for (int j = 0; j < n; j++) {
-        // Copy col wise data for variable usage
+
+      // Copy col wise data for variable usage
         for (int k = 0; k < dptr->cols; k++) {
             if (dptr->terSelection.at(k)) {
                 rowV = dptr->inX[(k * dptr->rows) + j];

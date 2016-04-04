@@ -33,12 +33,10 @@
  *  $Date: 2004/02/11 19:49:22 $
  */
 
-
 #ifndef SymbRegPrimits_hpp
 #define SymbRegPrimits_hpp
 
 #include "puppy_main.hpp"
-
 
 /*!
  *  \class Add SymbRegPrimits.hpp "SymbRegPrimits.hpp"
@@ -48,13 +46,11 @@
 class Add : public Puppy::Primitive {
 
 public:
-           Add();
-  virtual ~Add() { }
+    Add();
+    virtual ~Add() {}
 
-  virtual void execute(void* outDatum, Puppy::Context& ioContext);
-
+    virtual void execute(void* outDatum, Puppy::Context& ioContext);
 };
-
 
 /*!
  *  \class Subtract SymbRegPrimits.hpp "SymbRegPrimits.hpp"
@@ -64,13 +60,11 @@ public:
 class Subtract : public Puppy::Primitive {
 
 public:
-           Subtract();
-  virtual ~Subtract() { }
+    Subtract();
+    virtual ~Subtract() {}
 
-  virtual void execute(void* outDatum, Puppy::Context& ioContext);
-
+    virtual void execute(void* outDatum, Puppy::Context& ioContext);
 };
-
 
 /*!
  *  \class Multiply SymbRegPrimits.hpp "SymbRegPrimits.hpp"
@@ -80,13 +74,11 @@ public:
 class Multiply : public Puppy::Primitive {
 
 public:
-           Multiply();
-  virtual ~Multiply() { }
+    Multiply();
+    virtual ~Multiply() {}
 
-  virtual void execute(void* outDatum, Puppy::Context& ioContext);
-
+    virtual void execute(void* outDatum, Puppy::Context& ioContext);
 };
-
 
 /*!
  *  \class Divide SymbRegPrimits.hpp "SymbRegPrimits.hpp"
@@ -96,59 +88,46 @@ public:
 class Divide : public Puppy::Primitive {
 
 public:
-           Divide();
-  virtual ~Divide() { }
+    Divide();
+    virtual ~Divide() {}
 
-  virtual void execute(void* outDatum, Puppy::Context& ioContext);
-
+    virtual void execute(void* outDatum, Puppy::Context& ioContext);
 };
 
-class Sin : public Puppy::Primitive
-{
+class Sin : public Puppy::Primitive {
 
 public:
+    Sin();
+    virtual ~Sin() {}
 
-           Sin();
-  virtual ~Sin() { }
-
-  virtual void execute(void* outDatum, Puppy::Context& ioContext);
-
+    virtual void execute(void* outDatum, Puppy::Context& ioContext);
 };
 
-class Cos : public Puppy::Primitive
-{
+class Cos : public Puppy::Primitive {
 
 public:
+    Cos();
+    virtual ~Cos() {}
 
-           Cos();
-  virtual ~Cos() { }
-
-  virtual void execute(void* outDatum, Puppy::Context& ioContext);
-
+    virtual void execute(void* outDatum, Puppy::Context& ioContext);
 };
 
-class Log : public Puppy::Primitive
-{
+class Log : public Puppy::Primitive {
 
 public:
+    Log();
+    virtual ~Log() {}
 
-           Log();
-  virtual ~Log() { }
-
-  virtual void execute(void* outDatum, Puppy::Context& ioContext);
-
+    virtual void execute(void* outDatum, Puppy::Context& ioContext);
 };
 
-class Exp : public Puppy::Primitive
-{
+class Exp : public Puppy::Primitive {
 
 public:
+    Exp();
+    virtual ~Exp() {}
 
-           Exp();
-  virtual ~Exp() { }
-
-  virtual void execute(void* outDatum, Puppy::Context& ioContext);
-
+    virtual void execute(void* outDatum, Puppy::Context& ioContext);
 };
 
 /*!
@@ -159,15 +138,11 @@ public:
 class Ephemeral : public Puppy::Primitive {
 
 public:
-           Ephemeral();
-  virtual ~Ephemeral() { }
+    Ephemeral();
+    virtual ~Ephemeral() {}
 
-  virtual void execute(void* outDatum, Puppy::Context& ioContext);
-  virtual Puppy::PrimitiveHandle giveReference(Puppy::Context& ioContext);
-  
+    virtual void execute(void* outDatum, Puppy::Context& ioContext);
+    virtual Puppy::PrimitiveHandle giveReference(Puppy::Context& ioContext);
 };
 
-
-
 #endif // SymbRegPrimits_hpp
-

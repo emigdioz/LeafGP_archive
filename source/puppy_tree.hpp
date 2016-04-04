@@ -49,7 +49,6 @@
 
 namespace Puppy {
 
-
 /*!
  *  \struct Node puppy/Tree.hpp "puppy/Tree.hpp"
  *  \brief GP tree node structure.
@@ -57,23 +56,22 @@ namespace Puppy {
  */
 struct Node {
 
-  /*!
+    /*!
    *  \brief Construct a tree node.
    *  \param inPrimitive Reference to the associated primitive.
    *  \param inSubTreeSize Sub-tree size value.
    */
-  inline explicit Node(PrimitiveHandle inPrimitive=NULL, unsigned int inSubTreeSize=0, float inParameter=1) :
-    mPrimitive(inPrimitive),
-    mSubTreeSize(inSubTreeSize),
-    parameter(inParameter)
-  { }
-  
-  PrimitiveHandle mPrimitive;    //!< Smart pointer to the associated primitive.
-  unsigned int    mSubTreeSize;  //!< Sub-tree size, including actual node.
-  float           parameter;   //!< Parameter associated with node
+    inline explicit Node(PrimitiveHandle inPrimitive = NULL, unsigned int inSubTreeSize = 0, float inParameter = 1)
+        : mPrimitive(inPrimitive)
+        , mSubTreeSize(inSubTreeSize)
+        , parameter(inParameter)
+    {
+    }
 
+    PrimitiveHandle mPrimitive; //!< Smart pointer to the associated primitive.
+    unsigned int mSubTreeSize; //!< Sub-tree size, including actual node.
+    float parameter; //!< Parameter associated with node
 };
-
 
 /*!
  *  \class Tree puppy/Tree.hpp "puppy/Tree.hpp"
@@ -86,37 +84,34 @@ struct Node {
 class Tree : public std::vector<Node> {
 
 private:
-  void tree2infix(QString& ioOS, std::vector<unsigned int> depthV, int index=0) const;
-  void extractparentsdepth(std::vector<unsigned int> &depthV, int index=0, int depth=0) const;
-  void extractleavesdepth(std::vector<unsigned int> &depthV, int index=0, int depth=0) const;
+    void tree2infix(QString& ioOS, std::vector<unsigned int> depthV, int index = 0) const;
+    void extractparentsdepth(std::vector<unsigned int>& depthV, int index = 0, int depth = 0) const;
+    void extractleavesdepth(std::vector<unsigned int>& depthV, int index = 0, int depth = 0) const;
+
 public:
+    explicit Tree(float inFitness = -1.0, bool inValid = false);
 
-  explicit Tree(float inFitness=-1.0, bool inValid=false);
+    inline bool operator==(const Tree& inRightTree) const;
+    inline bool operator<(const Tree& inRightTree) const;
 
-  inline bool operator==(const Tree& inRightTree) const;
-  inline bool operator<(const Tree& inRightTree) const;
-  
-  unsigned int getDepth(unsigned int inIndex=0) const;
-  void         interpret(void* outResult, Context& ioContext);
-  void         setStackToNode(unsigned int inIndex, std::vector<unsigned int>& outCallStack) const;
-  void         write(std::ostream& ioOS, unsigned int inIndex=0) const;
-  void         write_qstring(QString& ioOS, unsigned int inIndex=0) const;
-  void         write_qstring_infix(QString& ioOS, unsigned int inIndex=0) const;
-  void         write_qstring_latex(QString& ioOS, unsigned int inIndex=0) const;
+    unsigned int getDepth(unsigned int inIndex = 0) const;
+    void interpret(void* outResult, Context& ioContext);
+    void setStackToNode(unsigned int inIndex, std::vector<unsigned int>& outCallStack) const;
+    void write(std::ostream& ioOS, unsigned int inIndex = 0) const;
+    void write_qstring(QString& ioOS, unsigned int inIndex = 0) const;
+    void write_qstring_infix(QString& ioOS, unsigned int inIndex = 0) const;
+    void write_qstring_latex(QString& ioOS, unsigned int inIndex = 0) const;
 
-  float mFitness;  //!< Fitness value of the GP tree
-  float mFitnessTest;
-  float rFitness;
-  float rFitnessTest;
-  bool  mValid;    //!< Flag indicating whether the fitness is valid.
-  int nNodes;
-              
+    float mFitness; //!< Fitness value of the GP tree
+    float mFitnessTest;
+    float rFitness;
+    float rFitnessTest;
+    bool mValid; //!< Flag indicating whether the fitness is valid.
+    int nNodes;
 };
-
 }
 
 inline std::ostream& operator<<(std::ostream& ioOS, const Puppy::Tree& inTree);
-
 
 /*!
  *  \brief Compare equality of two trees.
@@ -125,9 +120,8 @@ inline std::ostream& operator<<(std::ostream& ioOS, const Puppy::Tree& inTree);
  */
 inline bool Puppy::Tree::operator==(const Puppy::Tree& inRightTree) const
 {
-  return (mValid && inRightTree.mValid && (mFitness == inRightTree.mFitness));
+    return (mValid && inRightTree.mValid && (mFitness == inRightTree.mFitness));
 }
-
 
 /*!
  *  \brief Compare ranking of two trees.
@@ -136,9 +130,8 @@ inline bool Puppy::Tree::operator==(const Puppy::Tree& inRightTree) const
  */
 inline bool Puppy::Tree::operator<(const Puppy::Tree& inRightTree) const
 {
-  return (mValid && inRightTree.mValid && (mFitness < inRightTree.mFitness));
+    return (mValid && inRightTree.mValid && (mFitness < inRightTree.mFitness));
 }
-
 
 /*!
  *  \brief Write tree into output stream with function Puppy::Tree::write.
@@ -150,9 +143,8 @@ inline bool Puppy::Tree::operator<(const Puppy::Tree& inRightTree) const
  */
 inline std::ostream& operator<<(std::ostream& ioOS, const Puppy::Tree& inTree)
 {
-  inTree.write(ioOS);
-  return ioOS;
+    inTree.write(ioOS);
+    return ioOS;
 }
-
 
 #endif // Puppy_Tree_hpp

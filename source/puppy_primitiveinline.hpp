@@ -43,43 +43,41 @@
 #include "puppy_context.hpp"
 #include "puppy_tree.hpp"
 
-
 /*!
  *  \brief Construct a NULL pointing primitive smart PrimitiveHandle.
  */
-inline Puppy::PrimitiveHandle::PrimitiveHandle() :
-  mPrimitivePtr(NULL)
-{ }
-
+inline Puppy::PrimitiveHandle::PrimitiveHandle()
+    : mPrimitivePtr(NULL)
+{
+}
 
 /*!
  *  \brief Construct a primitive smart pointer that refer to the object pointed given.
  *  \param inPrimitPtr Pointer to the object to be referenced.
  */
-inline Puppy::PrimitiveHandle::PrimitiveHandle(const Puppy::Primitive* inPrimitPtr) :
-  mPrimitivePtr( (inPrimitPtr!=NULL) ? (const_cast<Primitive*>(inPrimitPtr)->refer()) : NULL )
-{ }
-
+inline Puppy::PrimitiveHandle::PrimitiveHandle(const Puppy::Primitive* inPrimitPtr)
+    : mPrimitivePtr((inPrimitPtr != NULL) ? (const_cast<Primitive*>(inPrimitPtr)->refer()) : NULL)
+{
+}
 
 /*!
  *  \brief Copy construct a primitive smart pointer.
  *  \param inPrimitiveHandle Smart PrimitiveHandle to copy.
  */
-inline Puppy::PrimitiveHandle::PrimitiveHandle(const Puppy::PrimitiveHandle& inPrimitiveHandle) :
-  mPrimitivePtr( (inPrimitiveHandle.getPointer()!=NULL) ?
-    (const_cast<Primitive*>(inPrimitiveHandle.getPointer())->refer()) : NULL )
-{ }
+inline Puppy::PrimitiveHandle::PrimitiveHandle(const Puppy::PrimitiveHandle& inPrimitiveHandle)
+    : mPrimitivePtr((inPrimitiveHandle.getPointer() != NULL) ? (const_cast<Primitive*>(inPrimitiveHandle.getPointer())->refer()) : NULL)
+{
+}
 
-  
 /*!
  *  \brief Destruct a primitive smart pointer by unrefering the pointed object.
  */
 inline Puppy::PrimitiveHandle::~PrimitiveHandle()
 {
-  if(mPrimitivePtr!=NULL) mPrimitivePtr->unrefer();
-  mPrimitivePtr = NULL;
+    if (mPrimitivePtr != NULL)
+        mPrimitivePtr->unrefer();
+    mPrimitivePtr = NULL;
 }
-
 
 /*!
  *  \brief Affect the actual PrimitiveHandle to an object PrimitiveHandle.
@@ -88,13 +86,16 @@ inline Puppy::PrimitiveHandle::~PrimitiveHandle()
  */
 inline Puppy::PrimitiveHandle& Puppy::PrimitiveHandle::operator=(const Puppy::Primitive* inPrimitPtr)
 {
-  if(mPrimitivePtr==inPrimitPtr) return *this;
-  if(mPrimitivePtr!=NULL) mPrimitivePtr->unrefer();
-  if(inPrimitPtr) mPrimitivePtr = const_cast<Primitive*>(inPrimitPtr)->refer();
-  else mPrimitivePtr = NULL;
-  return *this;
+    if (mPrimitivePtr == inPrimitPtr)
+        return *this;
+    if (mPrimitivePtr != NULL)
+        mPrimitivePtr->unrefer();
+    if (inPrimitPtr)
+        mPrimitivePtr = const_cast<Primitive*>(inPrimitPtr)->refer();
+    else
+        mPrimitivePtr = NULL;
+    return *this;
 }
-
 
 /*!
  *  \brief Affect the actual pointer to another smart pointer.
@@ -102,17 +103,21 @@ inline Puppy::PrimitiveHandle& Puppy::PrimitiveHandle::operator=(const Puppy::Pr
  *  \return Actual smart pointer.
  */
 inline Puppy::PrimitiveHandle&
-Puppy::PrimitiveHandle::operator=(const Puppy::PrimitiveHandle& inPrimitiveHandle)
+    Puppy::PrimitiveHandle::
+    operator=(const Puppy::PrimitiveHandle& inPrimitiveHandle)
 {
-  if(this==&inPrimitiveHandle) return *this;
-  if(mPrimitivePtr==inPrimitiveHandle.getPointer()) return *this;
-  if(mPrimitivePtr) mPrimitivePtr->unrefer();
-  if(inPrimitiveHandle.getPointer()!=NULL)
-    mPrimitivePtr = const_cast<Primitive*>(inPrimitiveHandle.getPointer())->refer();
-  else mPrimitivePtr = NULL;
-  return *this;
+    if (this == &inPrimitiveHandle)
+        return *this;
+    if (mPrimitivePtr == inPrimitiveHandle.getPointer())
+        return *this;
+    if (mPrimitivePtr)
+        mPrimitivePtr->unrefer();
+    if (inPrimitiveHandle.getPointer() != NULL)
+        mPrimitivePtr = const_cast<Primitive*>(inPrimitiveHandle.getPointer())->refer();
+    else
+        mPrimitivePtr = NULL;
+    return *this;
 }
-
 
 /*!
  *  \brief Get reference the primitive pointed.
@@ -120,10 +125,9 @@ Puppy::PrimitiveHandle::operator=(const Puppy::PrimitiveHandle& inPrimitiveHandl
  */
 inline Puppy::Primitive& Puppy::PrimitiveHandle::operator*()
 {
-  assert(mPrimitivePtr != NULL);
-  return *mPrimitivePtr;
+    assert(mPrimitivePtr != NULL);
+    return *mPrimitivePtr;
 }
-
 
 /*!
  *  \brief Get constant reference the primitive pointed.
@@ -131,10 +135,9 @@ inline Puppy::Primitive& Puppy::PrimitiveHandle::operator*()
  */
 inline const Puppy::Primitive& Puppy::PrimitiveHandle::operator*() const
 {
-  assert(mPrimitivePtr != NULL);
-  return *mPrimitivePtr;
+    assert(mPrimitivePtr != NULL);
+    return *mPrimitivePtr;
 }
-
 
 /*!
  *  \brief  Get reference the primitive pointed.
@@ -142,10 +145,9 @@ inline const Puppy::Primitive& Puppy::PrimitiveHandle::operator*() const
  */
 inline Puppy::Primitive* Puppy::PrimitiveHandle::operator->()
 {
-  assert(mPrimitivePtr != NULL);
-  return mPrimitivePtr;
+    assert(mPrimitivePtr != NULL);
+    return mPrimitivePtr;
 }
-
 
 /*!
  *  \brief  Get constant reference the primitive pointed.
@@ -153,10 +155,9 @@ inline Puppy::Primitive* Puppy::PrimitiveHandle::operator->()
  */
 inline const Puppy::Primitive* Puppy::PrimitiveHandle::operator->() const
 {
-  assert(mPrimitivePtr != NULL);
-  return mPrimitivePtr;
+    assert(mPrimitivePtr != NULL);
+    return mPrimitivePtr;
 }
-
 
 /*!
  *  \brief  Test whether the pointer is NULL or not.
@@ -164,9 +165,8 @@ inline const Puppy::Primitive* Puppy::PrimitiveHandle::operator->() const
  */
 inline bool Puppy::PrimitiveHandle::operator!() const
 {
-  return (!mPrimitivePtr);
+    return (!mPrimitivePtr);
 }
-
 
 /*!
  *  \brief Compare a smart pointer to a primitive pointer.
@@ -175,9 +175,8 @@ inline bool Puppy::PrimitiveHandle::operator!() const
  */
 inline bool Puppy::PrimitiveHandle::operator==(const Puppy::Primitive* inPrimitPtr) const
 {
-  return (mPrimitivePtr == inPrimitPtr);
+    return (mPrimitivePtr == inPrimitPtr);
 }
-
 
 /*!
  *  \brief Compare two primitive smart pointer.
@@ -186,9 +185,8 @@ inline bool Puppy::PrimitiveHandle::operator==(const Puppy::Primitive* inPrimitP
  */
 inline bool Puppy::PrimitiveHandle::operator==(const Puppy::PrimitiveHandle& inPrimitiveHandle) const
 {
-  return (mPrimitivePtr == inPrimitiveHandle.getPointer());
+    return (mPrimitivePtr == inPrimitiveHandle.getPointer());
 }
-
 
 /*!
  *  \brief Compare a smart pointer to a primitive pointer.
@@ -197,9 +195,8 @@ inline bool Puppy::PrimitiveHandle::operator==(const Puppy::PrimitiveHandle& inP
  */
 inline bool Puppy::PrimitiveHandle::operator!=(const Puppy::Primitive* inPrimitPtr) const
 {
-  return (mPrimitivePtr != inPrimitPtr);
+    return (mPrimitivePtr != inPrimitPtr);
 }
-
 
 /*!
  *  \brief Compare two smart PrimitiveHandles.
@@ -208,9 +205,8 @@ inline bool Puppy::PrimitiveHandle::operator!=(const Puppy::Primitive* inPrimitP
  */
 inline bool Puppy::PrimitiveHandle::operator!=(const Puppy::PrimitiveHandle& inPrimitiveHandle) const
 {
-  return (mPrimitivePtr != inPrimitiveHandle.getPointer());
+    return (mPrimitivePtr != inPrimitiveHandle.getPointer());
 }
-
 
 /*!
  *  \brief Return pointer to the referenced primitive.
@@ -218,9 +214,8 @@ inline bool Puppy::PrimitiveHandle::operator!=(const Puppy::PrimitiveHandle& inP
  */
 inline Puppy::Primitive* Puppy::PrimitiveHandle::getPointer()
 {
-  return mPrimitivePtr;
+    return mPrimitivePtr;
 }
-
 
 /*!
  *  \brief Return constant pointer to the referenced primitive.
@@ -228,9 +223,8 @@ inline Puppy::Primitive* Puppy::PrimitiveHandle::getPointer()
  */
 inline const Puppy::Primitive* Puppy::PrimitiveHandle::getPointer() const
 {
-  return mPrimitivePtr;
+    return mPrimitivePtr;
 }
-
 
 /*!
  *  \brief Get the name of the primitive.
@@ -238,9 +232,8 @@ inline const Puppy::Primitive* Puppy::PrimitiveHandle::getPointer() const
  */
 inline std::string Puppy::Primitive::getName() const
 {
-  return mName;
+    return mName;
 }
-
 
 /*!
  *  \brief Get the number of arguments of the primitive.
@@ -248,9 +241,8 @@ inline std::string Puppy::Primitive::getName() const
  */
 inline unsigned int Puppy::Primitive::getNumberArguments() const
 {
-  return mNumberArguments;
+    return mNumberArguments;
 }
-
 
 /*!
  *  \brief Increments the reference counter and returns a pointer to the actual primitive.
@@ -258,19 +250,18 @@ inline unsigned int Puppy::Primitive::getNumberArguments() const
  */
 inline Puppy::Primitive* Puppy::Primitive::refer()
 {
-  ++mRefCounter;
-  return this;
+    ++mRefCounter;
+    return this;
 }
-
 
 /*!
  *  \brief Decrement the reference counter and deletes the actual primitive if it reaches zero.
  */
 inline void Puppy::Primitive::unrefer()
 {
-  if((--mRefCounter) == 0) delete this;
+    if ((--mRefCounter) == 0)
+        delete this;
 }
-
 
 /*!
  *  \brief Get the value of the nth argument.
@@ -281,17 +272,14 @@ inline void Puppy::Primitive::unrefer()
 inline void
 Puppy::Primitive::getArgument(unsigned int inN, void* outResult, Puppy::Context& ioContext)
 {
-  assert(inN >= 0);
-  assert(inN < mNumberArguments);
-  unsigned int lIndex = ioContext.mCallStack.back() + 1;
-  for(unsigned int i=0; i<inN; ++i) lIndex += (*ioContext.mTree)[lIndex].mSubTreeSize;
-  ioContext.mCallStack.push_back(lIndex);
-  (*ioContext.mTree)[lIndex].mPrimitive->execute(outResult, ioContext);
-  ioContext.mCallStack.pop_back();
+    assert(inN >= 0);
+    assert(inN < mNumberArguments);
+    unsigned int lIndex = ioContext.mCallStack.back() + 1;
+    for (unsigned int i = 0; i < inN; ++i)
+        lIndex += (*ioContext.mTree)[lIndex].mSubTreeSize;
+    ioContext.mCallStack.push_back(lIndex);
+    (*ioContext.mTree)[lIndex].mPrimitive->execute(outResult, ioContext);
+    ioContext.mCallStack.pop_back();
 }
 
-
 #endif // Puppy_PrimitiveInline_hpp
-
-
- 

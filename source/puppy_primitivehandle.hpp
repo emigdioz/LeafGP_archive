@@ -40,10 +40,9 @@
 
 #include "puppy_primitivehandle.hpp"
 
-
 namespace Puppy {
 
-class Primitive;  // Forward declaration
+class Primitive; // Forward declaration
 
 /*!
  *  \class PrimitiveHandle puppy/PrimitiveHandle.hpp "puppy/PrimitiveHandle.hpp"
@@ -57,35 +56,29 @@ class Primitive;  // Forward declaration
 class PrimitiveHandle {
 
 public:
+    inline PrimitiveHandle();
+    inline PrimitiveHandle(const Primitive* inPrimitPtr);
+    inline PrimitiveHandle(const PrimitiveHandle& inPrimitiveHandle);
+    inline ~PrimitiveHandle();
 
-  inline PrimitiveHandle();
-  inline PrimitiveHandle(const Primitive* inPrimitPtr);
-  inline PrimitiveHandle(const PrimitiveHandle& inPrimitiveHandle);
-  inline ~PrimitiveHandle();
+    inline PrimitiveHandle& operator=(const Primitive* inPrimitPtr);
+    inline PrimitiveHandle& operator=(const PrimitiveHandle& inPrimitiveHandle);
+    inline Primitive& operator*();
+    inline const Primitive& operator*() const;
+    inline Primitive* operator->();
+    inline const Primitive* operator->() const;
+    inline bool operator!() const;
+    inline bool operator==(const Primitive* inPrimitPtr) const;
+    inline bool operator==(const PrimitiveHandle& inPrimitiveHandle) const;
+    inline bool operator!=(const Primitive* inPrimitPtr) const;
+    inline bool operator!=(const PrimitiveHandle& inPrimitiveHandle) const;
 
-  inline PrimitiveHandle& operator=(const Primitive* inPrimitPtr);
-  inline PrimitiveHandle& operator=(const PrimitiveHandle& inPrimitiveHandle);
-  inline Primitive&       operator*();
-  inline const Primitive& operator*() const;
-  inline Primitive*       operator->();
-  inline const Primitive* operator->() const;
-  inline bool             operator!() const;
-  inline bool             operator==(const Primitive* inPrimitPtr) const;
-  inline bool             operator==(const PrimitiveHandle& inPrimitiveHandle) const;
-  inline bool             operator!=(const Primitive* inPrimitPtr) const;
-  inline bool             operator!=(const PrimitiveHandle& inPrimitiveHandle) const;
-  
-  inline Primitive*       getPointer();
-  inline const Primitive* getPointer() const;
+    inline Primitive* getPointer();
+    inline const Primitive* getPointer() const;
 
 private:
-  Primitive* mPrimitivePtr;  // Reference to the associated primitive.
-   
+    Primitive* mPrimitivePtr; // Reference to the associated primitive.
 };
-
 }
 
 #endif // Puppy_PrimitiveHandle_hpp
-
-
- 

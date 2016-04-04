@@ -48,7 +48,6 @@
 
 namespace Puppy {
 
-
 /*!
  *  \class TokenT puppy/TokenT.hpp "puppy/TokenT.hpp"
  *  \brief Token template, to use as variable terminal primitive.
@@ -59,30 +58,26 @@ template <class T>
 class TokenT : public Primitive {
 
 public:
+    explicit TokenT(std::string inName = "TOKEN");
+    explicit TokenT(std::string inName, const T& inToken);
+    virtual ~TokenT() {}
 
-  explicit TokenT(std::string inName="TOKEN");
-  explicit TokenT(std::string inName, const T& inToken);
-  virtual ~TokenT() { }
+    virtual void execute(void* outDatum, Context& ioContext);
+    virtual void setValue(const void* inValue);
 
-  virtual void execute(void* outDatum, Context& ioContext);
-  virtual void setValue(const void* inValue);
-
-  T mToken;   //!< Token value of the primitive.
-      
+    T mToken; //!< Token value of the primitive.
 };
-
 }
-
 
 /*!
  *  \brief Construct a token primitive.
  *  \param inName Name of the primitive.
  */
 template <class T>
-Puppy::TokenT<T>::TokenT(std::string inName) :
-  Puppy::Primitive(0, inName)
-{ }
-
+Puppy::TokenT<T>::TokenT(std::string inName)
+    : Puppy::Primitive(0, inName)
+{
+}
 
 /*!
  *  \brief Construct a token primitive.
@@ -90,11 +85,11 @@ Puppy::TokenT<T>::TokenT(std::string inName) :
  *  \param inToken Value of the token.
  */
 template <class T>
-Puppy::TokenT<T>::TokenT(std::string inName, const T& inToken) :
-  Puppy::Primitive(0, inName),
-  mToken(inToken)
-{ }
-
+Puppy::TokenT<T>::TokenT(std::string inName, const T& inToken)
+    : Puppy::Primitive(0, inName)
+    , mToken(inToken)
+{
+}
 
 /*!
  *  \brief Execute the caracteristic token primitive operation.
@@ -104,17 +99,15 @@ Puppy::TokenT<T>::TokenT(std::string inName, const T& inToken) :
 template <class T>
 void Puppy::TokenT<T>::execute(void* outDatum, Puppy::Context& ioContext)
 {
-  T& lResult = *(T*)outDatum;
-  // Saves time by avoiding multiplication if LS is not enabled
-  if(ioContext.useLS)
-  {
-    float par = (*ioContext.mTree)[ioContext.mCallStack.back()].parameter;
-    lResult = mToken*par;
-  }
-  else
-    lResult = mToken;
+    T& lResult = *(T*)outDatum;
+    // Saves time by avoiding multiplication if LS is not enabled
+    if (ioContext.useLS) {
+        float par = (*ioContext.mTree)[ioContext.mCallStack.back()].parameter;
+        lResult = mToken * par;
+    }
+    else
+        lResult = mToken;
 }
-
 
 /*!
  *  \brief Set the value of the token primitive.
@@ -123,8 +116,7 @@ void Puppy::TokenT<T>::execute(void* outDatum, Puppy::Context& ioContext)
 template <class T>
 void Puppy::TokenT<T>::setValue(const void* inValue)
 {
-  mToken = *(const T*)inValue;
+    mToken = *(const T*)inValue;
 }
-
 
 #endif // Puppy_Context_hpp
