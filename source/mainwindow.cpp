@@ -49,7 +49,7 @@ MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    int id = QFontDatabase::addApplicationFont(":/fonts/Dosis-Medium.ttf");
+    QFontDatabase::addApplicationFont(":/fonts/Dosis-Medium.ttf");
     ui->setupUi(this);
     aboutDialog = new aboutwindow(this);
     ui->progressBar->setMaximum(100);
@@ -61,7 +61,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     // Limit numeric values for parameter inputs
     QRegExp Integer("^[0-9]{1,6}$");
-    QRegExp Floating("^[0-9]\.?[0-9]{1,5}$");
+    QRegExp Floating("^[0-9]?[0-9]{1,5}$");
     ui->lineEdit_5->setValidator(new QRegExpValidator(Integer, ui->lineEdit_5));
     ui->lineEdit_9->setValidator(new QRegExpValidator(Integer, ui->lineEdit_9));
     ui->lineEdit_4->setValidator(new QRegExpValidator(Integer, ui->lineEdit_4));
@@ -200,7 +200,7 @@ void MainWindow::requestedFitnessCalc(Worker::TreeContainer data)
     tempTree.rows = data.rows;
     tempTree.ioContext = data.ioContext;
     tempTree.terSelection = data.terSelection;
-    unsigned int i;
+    int i;
     allpop.resize(0);
     for (i = 0; i < popsize; i++) {
         tempTree.selTree = data.bunchTrees[i];
@@ -228,7 +228,6 @@ Puppy::Tree mapIndividual(const Worker::OneTree& element)
     double* inF;
     int cols;
     int rows;
-    int index;
     std::vector<bool> terSelection;
     Puppy::Context ioContext;
     Puppy::Tree selTree;
@@ -243,7 +242,7 @@ Puppy::Tree mapIndividual(const Worker::OneTree& element)
     double rowV, lQuadErr, lResult, lErr, lRMS;
     std::stringstream var;
     lQuadErr = 0.0;
-    unsigned int j, k;
+    int j, k;
     for (j = 0; j < rows; j++) {
         // Copy col wise data for variable usage
         for (k = 0; k < cols; k++) {
@@ -279,7 +278,7 @@ void MainWindow::showPointToolTip(QMouseEvent* event)
     if (ui->tableView->model()->rowCount() != 0) {
         if (ui->tableView->currentIndex().isValid()) {
             int x = ui->variablePlot->xAxis->pixelToCoord(event->pos().x());
-            int y = ui->variablePlot->yAxis->pixelToCoord(event->pos().y());
+            ui->variablePlot->yAxis->pixelToCoord(event->pos().y());
 
             QModelIndexList indexList = ui->tableView->selectionModel()->selectedColumns();
             int col;
@@ -711,7 +710,7 @@ void MainWindow::received_stats_end(Worker::Stats data)
         std::vector<double> train;
         std::vector<double> test;
         double Q1train, Q2train, Q3train, maxtrain, mintrain, Q1test, Q2test, Q3test, maxtest, mintest;
-        for (unsigned int i = 0; i < nrows; i++) {
+        for (int i = 0; i < nrows; i++) {
             train.push_back(ui->tableRuns->item(i, 1)->text().toDouble());
             test.push_back(ui->tableRuns->item(i, 2)->text().toDouble());
         }
@@ -755,7 +754,7 @@ void MainWindow::received_tree(Worker::TreeStruct data)
     float spany = 80;
     float starty = 100;
     int maxDepth = 0;
-    for (unsigned int i = 0; i < selectedTree.mName.size(); i++) {
+    for (int i = 0; i < selectedTree.mName.size(); i++) {
         nLeaves = countLeaves(i, nLeaves);
     }
     spanx = spanx * nLeaves;
@@ -763,13 +762,13 @@ void MainWindow::received_tree(Worker::TreeStruct data)
 
     positionLeaves(0, 0);
     positionParents(0, 0);
-    for (unsigned int i = 0; i < selectedTree.mName.size(); i++) {
+    for (int i = 0; i < selectedTree.mName.size(); i++) {
         if (selectedTree.posY[i] > maxDepth)
             maxDepth = selectedTree.posY[i];
     }
 
     // Draw nodes
-    for (unsigned int i = 0; i < selectedTree.mName.size(); i++) {
+    for (int i = 0; i < selectedTree.mName.size(); i++) {
         Node* node = new Node(ui->treeGraph);
         node->nameNode = selectedTree.mName[i];
         ui->treeGraph->scene()->addItem(node);
@@ -780,13 +779,13 @@ void MainWindow::received_tree(Worker::TreeStruct data)
     int counter, index;
     QList<QGraphicsItem*> listnodes = ui->treeGraph->scene()->items();
     index = 0;
-    for (unsigned int depth = 0; depth < maxDepth; depth++) {
+    for (int depth = 0; depth < maxDepth; depth++) {
         // Search all nodes with the same depth
         do {
             if (selectedTree.posY[index] == depth) {
                 counter = 0;
                 Node* nodeParent = qgraphicsitem_cast<Node*>(listnodes.at(index));
-                for (unsigned int k = 0; k < selectedTree.mNumberArguments[index]; k++) {
+                for (int k = 0; k < selectedTree.mNumberArguments[index]; k++) {
                     do // Search for childrens
                     {
                         if (selectedTree.posY[index + counter] == (depth + 1)) {
@@ -813,7 +812,7 @@ void MainWindow::received_tree(Worker::TreeStruct data)
     font.setBold(false);
     font.setPointSize(14);
 
-    for (unsigned int i = 0; i < (maxDepth + 1); i++) {
+    for (int i = 0; i < (maxDepth + 1); i++) {
         QPen pen(QColor(240, 240, 240, 255), 30, Qt::SolidLine);
         QLineF line(startx - 100, (spany * i) + starty, spanx + startx, (spany * i) + starty);
         ui->treeGraph->scene()->addLine(line, pen);
@@ -832,7 +831,7 @@ void MainWindow::view_single_tree(Worker::TreeStruct data)
     float spany = 80;
     float starty = 100;
     int maxDepth = 0;
-    for (unsigned int i = 0; i < selectedTree.mName.size(); i++) {
+    for (int i = 0; i < selectedTree.mName.size(); i++) {
         nLeaves = countLeaves(i, nLeaves);
     }
     spanx = spanx * nLeaves;
@@ -842,7 +841,7 @@ void MainWindow::view_single_tree(Worker::TreeStruct data)
     positionParents(0, 0);
 
     // Draw nodes
-    for (unsigned int i = 0; i < selectedTree.mName.size(); i++) {
+    for (int i = 0; i < selectedTree.mName.size(); i++) {
         Node* node = new Node(ui->singletreeGraph);
         node->nameNode = selectedTree.mName[i];
         ui->singletreeGraph->scene()->addItem(node);
@@ -855,14 +854,14 @@ void MainWindow::view_single_tree(Worker::TreeStruct data)
     int counter, index;
     QList<QGraphicsItem*> listnodes = ui->singletreeGraph->scene()->items();
     index = 0;
-    for (unsigned int depth = 0; depth < maxDepth; depth++) {
+    for (int depth = 0; depth < maxDepth; depth++) {
 
       // Search all nodes with the same depth
         do {
             if (selectedTree.posY[index] == depth) {
                 counter = 0;
                 Node* nodeParent = qgraphicsitem_cast<Node*>(listnodes.at(index));
-                for (unsigned int k = 0; k < selectedTree.mNumberArguments[index]; k++) {
+                for (int k = 0; k < selectedTree.mNumberArguments[index]; k++) {
                     do // Search for childrens
                     {
                         if (selectedTree.posY[index + counter] == (depth + 1)) {
@@ -899,7 +898,7 @@ void MainWindow::positionLeaves(int index, int depth)
         selectedTree.posY[index] = depth;
     }
     unsigned int j = index + 1;
-    for (unsigned int i = 0; i < selectedTree.mNumberArguments[index]; i++) {
+    for (int i = 0; i < selectedTree.mNumberArguments[index]; i++) {
         positionLeaves(j, depth + 1);
         j += selectedTree.mSubTreeSize[j];
     }
@@ -908,14 +907,14 @@ void MainWindow::positionLeaves(int index, int depth)
 void MainWindow::positionParents(int index, int depth)
 {
     unsigned int j = index + 1;
-    for (unsigned int i = 0; i < selectedTree.mNumberArguments[index]; i++) {
+    for (int i = 0; i < selectedTree.mNumberArguments[index]; i++) {
         positionParents(j, depth + 1);
         j += selectedTree.mSubTreeSize[j];
     }
     if (selectedTree.mSubTreeSize[index] > 1) {
         float x = 0;
         int counter = 0;
-        for (unsigned int k = 0; k < selectedTree.mNumberArguments[index]; k++) {
+        for (int k = 0; k < selectedTree.mNumberArguments[index]; k++) {
             do // Search for childrens
             {
                 if (selectedTree.posY[index + counter] == (depth + 1)) {
@@ -1148,7 +1147,7 @@ void MainWindow::thread_finished()
 void MainWindow::on_listFunctions_itemSelectionChanged()
 {
     std::vector<bool> funSelection;
-    for (unsigned int i = 0; i < ui->listFunctions->count(); i++) {
+    for (int i = 0; i < ui->listFunctions->count(); i++) {
         if (ui->listFunctions->item(i)->isSelected())
             funSelection.push_back(true);
         else
@@ -1295,7 +1294,7 @@ void MainWindow::on_listTerminals_itemSelectionChanged()
 {
     int count = 0;
     std::vector<bool> terSelection;
-    for (unsigned int i = 0; i < ui->listTerminals->count(); i++) {
+    for (int i = 0; i < ui->listTerminals->count(); i++) {
         if (ui->listTerminals->item(i)->isSelected())
             terSelection.push_back(true);
         else
@@ -1388,7 +1387,7 @@ void MainWindow::ShowContextMenu(const QPoint& pos)
     myMenu.addAction(ui->actionInfix_syntax);
     myMenu.addAction(ui->actionLatex_Syntax);
     if (!TreeString.isEmpty())
-        QAction* selectedItem = myMenu.exec(globalPos);
+        myMenu.exec(globalPos);
 }
 
 void MainWindow::on_actionPrefix_syntax_triggered()
@@ -1500,7 +1499,7 @@ void MainWindow::on_tableView_clicked(const QModelIndex& index)
     QVector<QString> variablePlotLabelsX;
     QVector<double> variablePlot2TicksX;
     QVector<QString> variablePlot2LabelsX;
-    for (unsigned int i = 0; i < iRows; i++) {
+    for (int i = 0; i < iRows; i++) {
         X.push_back(i + 1);
         Y.push_back(model->item(i, indexCol)->text().toDouble());
         if (indexCol < iCols) {

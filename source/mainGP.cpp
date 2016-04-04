@@ -186,7 +186,7 @@ int Worker::start_main(void)
 
     // Add terminals
     std::stringstream str;
-    for (unsigned int i = 0; i < dataset_cols - 1; i++) {
+    for (int i = 0; i < dataset_cols - 1; i++) {
         if (terminalselection.at(i)) { // Check selected variables
             str << "X" << (i + 1);
             lContext.insert(new TokenT<double>(str.str(), 0.0));
@@ -199,7 +199,7 @@ int Worker::start_main(void)
 
     // Prepare data, separating input and output variables
     std::vector<int> index;
-    for (unsigned int i = 0; i < dataset_rows; ++i)
+    for (int i = 0; i < dataset_rows; ++i)
         index.push_back(i);
     // Make random indexing for training,testing partitioning
     std::random_shuffle(index.begin(), index.end());
@@ -220,21 +220,21 @@ int Worker::start_main(void)
     double* inputV = new double[dataset_rows * (dataset_cols - 1)];
     double* outputV = new double[dataset_rows];
 
-    for (unsigned int j = 0; j < (dataset_cols - 1); j++) {
+    for (int j = 0; j < (dataset_cols - 1); j++) {
         // Training data
-        for (unsigned int i = 0; i < size_training; i++) {
+        for (int i = 0; i < size_training; i++) {
             trainingIn[(j * size_training) + i] = trainingSet[(j * size_training) + i];
         }
         // Testing data
-        for (unsigned int i = 0; i < (dataset_rows - size_training); i++) {
+        for (int i = 0; i < (dataset_rows - size_training); i++) {
             testingIn[(j * (dataset_rows - size_training)) + i] = testingSet[(j * (dataset_rows - size_training)) + i];
         }
     }
-    for (unsigned int i = 0; i < size_training; i++) {
+    for (int i = 0; i < size_training; i++) {
         trainingOut[i] = trainingSet[((dataset_cols - 1) * size_training) + i];
         // qDebug()<<i<<": "<<trainingOut[i];
     }
-    for (unsigned int i = 0; i < (dataset_rows - size_training); i++) {
+    for (int i = 0; i < (dataset_rows - size_training); i++) {
         testingOut[i] = testingSet[((dataset_cols - 1) * (dataset_rows - size_training)) + i];
         // qDebug()<<i<<": "<<testingOut[i];
     }
@@ -253,14 +253,13 @@ int Worker::start_main(void)
         dataset_cols - 1, size_training, terminalselection, multicore_activated);
     Stats GPthis;
     QString message;
-    double bfitTrain, bfitTest, avgSize;
     int bindex; // Best individual index
     calculateStats(lPopulation, 0, message, GPthis.train, bindex, GPthis.avgsize,
         GPthis.maxsize, GPthis.minsize);
     emit valueChanged(message);
     float progress_float;
     bool abort = _abort;
-    unsigned int i;
+    unsigned int i,j;
     QString output;
     TreeStruct chosenTree;
     fitnessdata datafit;
@@ -271,7 +270,7 @@ int Worker::start_main(void)
     // prefill population empty fitness data
     for (i = 0; i < lNbrGen; ++i) {
         datafit.data[i] = new double[lPopSize];
-        for (int j = 0; j < lPopSize; j++) {
+        for (j = 0; j < lPopSize; j++) {
             datafit.data[i][j] = 0;
         }
     }
@@ -314,7 +313,7 @@ int Worker::start_main(void)
         emit sendEvalFunc(nEvalFunc);
 
         // fill population fitness data
-        for (int j = 0; j < lPopSize; j++) {
+        for (j = 0; j < lPopSize; j++) {
             datafit.data[i - 1][j] = lPopulation[j].mFitness;
         }
         emit plot3DSendData(datafit);
@@ -376,7 +375,8 @@ unsigned int Worker::evaluateFitness(std::vector<Tree>& ioPopulation,
 {
     std::stringstream var;
     double rowV, lQuadErr, lResult, lErr, lRMS;
-    unsigned int lNbrEval = 0, i, j, k;
+    unsigned int lNbrEval = 0,i;
+    int j, k;
     for (i = 0; i < ioPopulation.size(); i++) {
         lQuadErr = 0.0;
         for (j = 0; j < rows; j++) {
@@ -413,8 +413,7 @@ unsigned int Worker::evaluateFitness_multithread(
     bool multithread)
 {
     std::stringstream var;
-    double rowV, lQuadErr, lResult, lErr, lRMS;
-    unsigned int lNbrEval = 0, i, j, k;
+    int i;
     int popsize = ioPopulation.size();
     // Copy population to QVector
     wholePop.cols = cols;
@@ -454,10 +453,9 @@ unsigned int Worker::evaluateFitnessTesting(Tree& individual,
 {
     std::stringstream var;
     double rowV;
-    unsigned int lNbrEval = 0, j, k;
+    unsigned int lNbrEval = 0;
+    int j, k;
     double lQuadErr = 0.0, lResult, lErr, lRMS;
-    // for(j=0;j<(cols*rows);j++) qDebug()<<j<<": "<<inX[j];
-
     for (j = 0; j < rows; j++) {
         // Copy col wise data for variable usage
         for (k = 0; k < cols; k++) {
@@ -488,7 +486,8 @@ unsigned int Worker::evaluateFitnessTraining(Tree& individual,
 {
     std::stringstream var;
     double rowV;
-    unsigned int lNbrEval = 0, j, k;
+    unsigned int lNbrEval = 0;
+    int j, k;
     double lQuadErr = 0.0, lResult, lErr, lRMS;
     for (j = 0; j < rows; j++) {
         // Copy col wise data for variable usage
@@ -522,7 +521,6 @@ int Worker::applyLS(Tree& individual, Context& ioContext, double* inX,
     Tree tmpInd = individual;
     OneTree bufferTree;
     int counter = 0;
-    int ret;
     double info[LM_INFO_SZ];
     for (unsigned int i = 0; i < tmpInd.size(); i++) {
         QString temp = QString::fromStdString(tmpInd[i].mPrimitive->getName());
@@ -540,7 +538,7 @@ int Worker::applyLS(Tree& individual, Context& ioContext, double* inX,
     double p[m], x[n];
 
     // Parameter initialization
-    for (unsigned int i = 0; i < m; i++) {
+    for (int i = 0; i < m; i++) {
         p[i] = 0.5;
     }
     bufferTree.selTree = tmpInd;
@@ -555,7 +553,7 @@ int Worker::applyLS(Tree& individual, Context& ioContext, double* inX,
         x[j] = inF[j];
 
     // Do Levenberg-Marquardt optimization
-    ret = dlevmar_dif(objFunc, p, x, m, n, 100, NULL, info, NULL, NULL,
+    dlevmar_dif(objFunc, p, x, m, n, 100, NULL, info, NULL, NULL,
         &bufferTree);
     qDebug() << info[5] << " iterations";
     qDebug() << info[7] << " function evaluations";
@@ -600,6 +598,7 @@ int Worker::applyLS(Tree& individual, Context& ioContext, double* inX,
     evaluateFitnessTraining(tmpInd, ioContext, inX, inF, cols, rows,
         terSelection);
     optFit = tmpInd.rFitness;
+    return 0;
 }
 
 // LS objective function
