@@ -429,7 +429,7 @@ color: rgb(138,149,165);
 
 QRadioButton
 {
-ont-family: Dosis;
+font-family: Dosis;
 font-weight: medium;
 font-size:14px;
 color: rgb(138,149,165);

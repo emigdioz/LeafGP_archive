@@ -3,7 +3,7 @@ CONFIG += qt warn_on thread exceptions
 QT += core gui opengl concurrent
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
-unix:!macx { LIBS += -L../../lib -lGLU -L/home/emigdio/git_repositories/openblas/lib/ -lopenblas -lpthread}
+unix:!macx { LIBS += -L../../lib -lGLU -lopenblas -lpthread}
 
 macx: LIBS += -L../../lib -framework OpenGL
 
