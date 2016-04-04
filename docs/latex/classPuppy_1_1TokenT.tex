@@ -1,0 +1,146 @@
+\hypertarget{classPuppy_1_1TokenT}{}\section{Puppy\+:\+:Token\+T$<$ T $>$ Class Template Reference}
+\label{classPuppy_1_1TokenT}\index{Puppy\+::\+Token\+T$<$ T $>$@{Puppy\+::\+Token\+T$<$ T $>$}}
+
+
+Token template, to use as variable terminal primitive.  
+
+
+
+
+Inheritance diagram for Puppy\+:\+:Token\+T$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{classPuppy_1_1TokenT__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Puppy\+:\+:Token\+T$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{classPuppy_1_1TokenT__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPuppy_1_1TokenT_a6a7b7bfc007d988e971e27bd1dec45ef}{Token\+T} (std\+::string in\+Name=\char`\"{}T\+O\+K\+E\+N\char`\"{})
+\begin{DoxyCompactList}\small\item\em Construct a token primitive. \end{DoxyCompactList}\item 
+\hyperlink{classPuppy_1_1TokenT_a459a16b36d08f3d4fddd41f720bdd7e2}{Token\+T} (std\+::string in\+Name, const T \&in\+Token)
+\begin{DoxyCompactList}\small\item\em Construct a token primitive. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classPuppy_1_1TokenT_a15641f373da2d98c057247c32deb943a}{execute} (void $\ast$out\+Datum, \hyperlink{classPuppy_1_1Context}{Context} \&io\+Context)
+\begin{DoxyCompactList}\small\item\em Execute the caracteristic token primitive operation. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classPuppy_1_1TokenT_ad38ced7ce46e1ef1449bd90560296f3f}{set\+Value} (const void $\ast$in\+Value)
+\begin{DoxyCompactList}\small\item\em Set the value of the token primitive. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classPuppy_1_1TokenT_abb63e082387b0aa4f8986ae52f020020}{}T \hyperlink{classPuppy_1_1TokenT_abb63e082387b0aa4f8986ae52f020020}{m\+Token}\label{classPuppy_1_1TokenT_abb63e082387b0aa4f8986ae52f020020}
+
+\begin{DoxyCompactList}\small\item\em Token value of the primitive. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$class Puppy\+::\+Token\+T$<$ T $>$}
+
+Token template, to use as variable terminal primitive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & Templated type. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classPuppy_1_1TokenT_a6a7b7bfc007d988e971e27bd1dec45ef}{}\index{Puppy\+::\+Token\+T@{Puppy\+::\+Token\+T}!Token\+T@{Token\+T}}
+\index{Token\+T@{Token\+T}!Puppy\+::\+Token\+T@{Puppy\+::\+Token\+T}}
+\subsubsection[{Token\+T}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf Puppy\+::\+Token\+T}$<$ T $>$\+::{\bf Token\+T} (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{in\+Name = {\ttfamily \char`\"{}TOKEN\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{classPuppy_1_1TokenT_a6a7b7bfc007d988e971e27bd1dec45ef}
+
+
+Construct a token primitive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Name} & Name of the primitive. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPuppy_1_1TokenT_a459a16b36d08f3d4fddd41f720bdd7e2}{}\index{Puppy\+::\+Token\+T@{Puppy\+::\+Token\+T}!Token\+T@{Token\+T}}
+\index{Token\+T@{Token\+T}!Puppy\+::\+Token\+T@{Puppy\+::\+Token\+T}}
+\subsubsection[{Token\+T}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf Puppy\+::\+Token\+T}$<$ T $>$\+::{\bf Token\+T} (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{in\+Name, }
+\item[{const T \&}]{in\+Token}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{classPuppy_1_1TokenT_a459a16b36d08f3d4fddd41f720bdd7e2}
+
+
+Construct a token primitive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Name} & Name of the primitive. \\
+\hline
+{\em in\+Token} & Value of the token. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classPuppy_1_1TokenT_a15641f373da2d98c057247c32deb943a}{}\index{Puppy\+::\+Token\+T@{Puppy\+::\+Token\+T}!execute@{execute}}
+\index{execute@{execute}!Puppy\+::\+Token\+T@{Puppy\+::\+Token\+T}}
+\subsubsection[{execute}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf Puppy\+::\+Token\+T}$<$ T $>$\+::execute (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{out\+Datum, }
+\item[{{\bf Puppy\+::\+Context} \&}]{io\+Context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPuppy_1_1TokenT_a15641f373da2d98c057247c32deb943a}
+
+
+Execute the caracteristic token primitive operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\+Datum} & Result of the execution. \\
+\hline
+{\em io\+Context} & Evolutionary context. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classPuppy_1_1Primitive_aaef85034e66f49903c591158c3b5ffef}{Puppy\+::\+Primitive}.
+
+\hypertarget{classPuppy_1_1TokenT_ad38ced7ce46e1ef1449bd90560296f3f}{}\index{Puppy\+::\+Token\+T@{Puppy\+::\+Token\+T}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Puppy\+::\+Token\+T@{Puppy\+::\+Token\+T}}
+\subsubsection[{set\+Value}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf Puppy\+::\+Token\+T}$<$ T $>$\+::set\+Value (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{in\+Value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPuppy_1_1TokenT_ad38ced7ce46e1ef1449bd90560296f3f}
+
+
+Set the value of the token primitive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Value} & Value of the token. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classPuppy_1_1Primitive_a2cd429caecd22c31166230b3467fb861}{Puppy\+::\+Primitive}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/puppy\+\_\+token\+T.\+hpp\end{DoxyCompactItemize}

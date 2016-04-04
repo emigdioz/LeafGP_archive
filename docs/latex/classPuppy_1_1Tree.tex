@@ -1,0 +1,231 @@
+\hypertarget{classPuppy_1_1Tree}{}\section{Puppy\+:\+:Tree Class Reference}
+\label{classPuppy_1_1Tree}\index{Puppy\+::\+Tree@{Puppy\+::\+Tree}}
+
+
+G\+P tree class.
+
+The evolutionary context includes the execution context used when interpreting the trees along with the problem set-\/up defined with the function and terminal set, and the randomizer.  
+
+
+
+
+Inheritance diagram for Puppy\+:\+:Tree\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{classPuppy_1_1Tree__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Puppy\+:\+:Tree\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{classPuppy_1_1Tree__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPuppy_1_1Tree_ac3a0b230da2e70ecbd801dc1508a3663}{Tree} (float in\+Fitness=-\/1.\+0, bool in\+Valid=false)
+\begin{DoxyCompactList}\small\item\em Construct a new tree, with given fitness and validity flag. \end{DoxyCompactList}\item 
+bool \hyperlink{classPuppy_1_1Tree_a51989208ace756d41a16e8eb35d03cb5}{operator==} (const \hyperlink{classPuppy_1_1Tree}{Tree} \&in\+Right\+Tree) const 
+\begin{DoxyCompactList}\small\item\em Compare equality of two trees. \end{DoxyCompactList}\item 
+bool \hyperlink{classPuppy_1_1Tree_a60a5ef4dc1298a93810f065a5fffc906}{operator$<$} (const \hyperlink{classPuppy_1_1Tree}{Tree} \&in\+Right\+Tree) const 
+\begin{DoxyCompactList}\small\item\em Compare ranking of two trees. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{classPuppy_1_1Tree_aa5979533de55c89eb808a69288db5a1b}{get\+Depth} (unsigned int in\+Index=0) const 
+\begin{DoxyCompactList}\small\item\em Return tree depth at given index. \end{DoxyCompactList}\item 
+void \hyperlink{classPuppy_1_1Tree_aa9e48062cd1ee1d9c8dca83686f35fb1}{interpret} (void $\ast$out\+Result, \hyperlink{classPuppy_1_1Context}{Context} \&io\+Context)
+\begin{DoxyCompactList}\small\item\em Interpret the G\+P tree. \end{DoxyCompactList}\item 
+void \hyperlink{classPuppy_1_1Tree_a23ae7305ae065dfccf354b3d4ba306c7}{set\+Stack\+To\+Node} (unsigned int in\+Index, std\+::vector$<$ unsigned int $>$ \&out\+Call\+Stack) const 
+\begin{DoxyCompactList}\small\item\em Set call stack to include the correctly refer to a given node. \end{DoxyCompactList}\item 
+void \hyperlink{classPuppy_1_1Tree_ae7cf5b8e64273dc265a2e751f4a06ffb}{write} (std\+::ostream \&io\+O\+S, unsigned int in\+Index=0) const 
+\begin{DoxyCompactList}\small\item\em Write G\+P tree at given index as a s-\/expression into a C++ output stream. \end{DoxyCompactList}\item 
+\hypertarget{classPuppy_1_1Tree_a7b051f1143713fb9dc754abaa995fa05}{}void {\bfseries write\+\_\+qstring} (Q\+String \&io\+O\+S, unsigned int in\+Index=0) const \label{classPuppy_1_1Tree_a7b051f1143713fb9dc754abaa995fa05}
+
+\item 
+\hypertarget{classPuppy_1_1Tree_a0efdb3778f18a4aec63d9482aeb7ad55}{}void {\bfseries write\+\_\+qstring\+\_\+infix} (Q\+String \&io\+O\+S, unsigned int in\+Index=0) const \label{classPuppy_1_1Tree_a0efdb3778f18a4aec63d9482aeb7ad55}
+
+\item 
+\hypertarget{classPuppy_1_1Tree_aa464eae9cf144f8525320f23d00a8172}{}void {\bfseries write\+\_\+qstring\+\_\+latex} (Q\+String \&io\+O\+S, unsigned int in\+Index=0) const \label{classPuppy_1_1Tree_aa464eae9cf144f8525320f23d00a8172}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classPuppy_1_1Tree_a570b092e1827472f39dba11df2bfdbca}{}float \hyperlink{classPuppy_1_1Tree_a570b092e1827472f39dba11df2bfdbca}{m\+Fitness}\label{classPuppy_1_1Tree_a570b092e1827472f39dba11df2bfdbca}
+
+\begin{DoxyCompactList}\small\item\em Fitness value of the G\+P tree. \end{DoxyCompactList}\item 
+\hypertarget{classPuppy_1_1Tree_ad110a4c393135da8fd0eb603ac671f10}{}float {\bfseries m\+Fitness\+Test}\label{classPuppy_1_1Tree_ad110a4c393135da8fd0eb603ac671f10}
+
+\item 
+\hypertarget{classPuppy_1_1Tree_aafd16788f30f4f5474e19899edc848e4}{}float {\bfseries r\+Fitness}\label{classPuppy_1_1Tree_aafd16788f30f4f5474e19899edc848e4}
+
+\item 
+\hypertarget{classPuppy_1_1Tree_a3f8ddcf28b4ea6b1461839d131244b00}{}float {\bfseries r\+Fitness\+Test}\label{classPuppy_1_1Tree_a3f8ddcf28b4ea6b1461839d131244b00}
+
+\item 
+\hypertarget{classPuppy_1_1Tree_a3acb505d5915892a986b4a5ee0eb1e87}{}bool \hyperlink{classPuppy_1_1Tree_a3acb505d5915892a986b4a5ee0eb1e87}{m\+Valid}\label{classPuppy_1_1Tree_a3acb505d5915892a986b4a5ee0eb1e87}
+
+\begin{DoxyCompactList}\small\item\em Flag indicating whether the fitness is valid. \end{DoxyCompactList}\item 
+\hypertarget{classPuppy_1_1Tree_a31d5ff402f9d01fbd4043507e4abd8c9}{}int {\bfseries n\+Nodes}\label{classPuppy_1_1Tree_a31d5ff402f9d01fbd4043507e4abd8c9}
+
+\end{DoxyCompactItemize}
+\subsection*{Related Functions}
+(Note that these are not member functions.) \begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{group__Puppy_ga055f36ab366f6ac84c28e0f7f19103e2}{operator$<$$<$} (std\+::ostream \&io\+O\+S, const \hyperlink{classPuppy_1_1Tree}{Puppy\+::\+Tree} \&in\+Tree)
+\begin{DoxyCompactList}\small\item\em Write tree into output stream with function \hyperlink{classPuppy_1_1Tree_ae7cf5b8e64273dc265a2e751f4a06ffb}{Puppy\+::\+Tree\+::write}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+G\+P tree class.
+
+The evolutionary context includes the execution context used when interpreting the trees along with the problem set-\/up defined with the function and terminal set, and the randomizer. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classPuppy_1_1Tree_ac3a0b230da2e70ecbd801dc1508a3663}{}\index{Puppy\+::\+Tree@{Puppy\+::\+Tree}!Tree@{Tree}}
+\index{Tree@{Tree}!Puppy\+::\+Tree@{Puppy\+::\+Tree}}
+\subsubsection[{Tree}]{\setlength{\rightskip}{0pt plus 5cm}Puppy\+::\+Tree\+::\+Tree (
+\begin{DoxyParamCaption}
+\item[{float}]{in\+Fitness = {\ttfamily -\/1.0}, }
+\item[{bool}]{in\+Valid = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{classPuppy_1_1Tree_ac3a0b230da2e70ecbd801dc1508a3663}
+
+
+Construct a new tree, with given fitness and validity flag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Fitness} & Fitness value of the G\+P tree. \\
+\hline
+{\em in\+Valid} & Validity of the fitness value. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classPuppy_1_1Tree_aa5979533de55c89eb808a69288db5a1b}{}\index{Puppy\+::\+Tree@{Puppy\+::\+Tree}!get\+Depth@{get\+Depth}}
+\index{get\+Depth@{get\+Depth}!Puppy\+::\+Tree@{Puppy\+::\+Tree}}
+\subsubsection[{get\+Depth}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Puppy\+::\+Tree\+::get\+Depth (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{in\+Index = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) const}\label{classPuppy_1_1Tree_aa5979533de55c89eb808a69288db5a1b}
+
+
+Return tree depth at given index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Index} & Index of sub-\/tree root to get the depth from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sub-\/tree depth. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1Tree_aa9e48062cd1ee1d9c8dca83686f35fb1}{}\index{Puppy\+::\+Tree@{Puppy\+::\+Tree}!interpret@{interpret}}
+\index{interpret@{interpret}!Puppy\+::\+Tree@{Puppy\+::\+Tree}}
+\subsubsection[{interpret}]{\setlength{\rightskip}{0pt plus 5cm}void Puppy\+::\+Tree\+::interpret (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{out\+Result, }
+\item[{{\bf Puppy\+::\+Context} \&}]{io\+Context}
+\end{DoxyParamCaption}
+)}\label{classPuppy_1_1Tree_aa9e48062cd1ee1d9c8dca83686f35fb1}
+
+
+Interpret the G\+P tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\+Result} & Datum containing the result of the interpretation. \\
+\hline
+{\em io\+Context} & Evolutionary context. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPuppy_1_1Tree_a60a5ef4dc1298a93810f065a5fffc906}{}\index{Puppy\+::\+Tree@{Puppy\+::\+Tree}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Puppy\+::\+Tree@{Puppy\+::\+Tree}}
+\subsubsection[{operator$<$}]{\setlength{\rightskip}{0pt plus 5cm}bool Puppy\+::\+Tree\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tree} \&}]{in\+Right\+Tree}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1Tree_a60a5ef4dc1298a93810f065a5fffc906}
+
+
+Compare ranking of two trees. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Right\+Tree} & Second tree to compare to the actual. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True is actual tree is less than seconf, false if not. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1Tree_a51989208ace756d41a16e8eb35d03cb5}{}\index{Puppy\+::\+Tree@{Puppy\+::\+Tree}!operator==@{operator==}}
+\index{operator==@{operator==}!Puppy\+::\+Tree@{Puppy\+::\+Tree}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Puppy\+::\+Tree\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tree} \&}]{in\+Right\+Tree}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1Tree_a51989208ace756d41a16e8eb35d03cb5}
+
+
+Compare equality of two trees. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Right\+Tree} & Second tree to compare to the actual. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True is trees are equals, false if not. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1Tree_a23ae7305ae065dfccf354b3d4ba306c7}{}\index{Puppy\+::\+Tree@{Puppy\+::\+Tree}!set\+Stack\+To\+Node@{set\+Stack\+To\+Node}}
+\index{set\+Stack\+To\+Node@{set\+Stack\+To\+Node}!Puppy\+::\+Tree@{Puppy\+::\+Tree}}
+\subsubsection[{set\+Stack\+To\+Node}]{\setlength{\rightskip}{0pt plus 5cm}void Puppy\+::\+Tree\+::set\+Stack\+To\+Node (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{in\+Index, }
+\item[{std\+::vector$<$ unsigned int $>$ \&}]{out\+Call\+Stack}
+\end{DoxyParamCaption}
+) const}\label{classPuppy_1_1Tree_a23ae7305ae065dfccf354b3d4ba306c7}
+
+
+Set call stack to include the correctly refer to a given node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Index} & \hyperlink{structPuppy_1_1Node}{Node} index to which call stack must be set. \\
+\hline
+{\em out\+Call\+Stack} & Result of call stack setting. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPuppy_1_1Tree_ae7cf5b8e64273dc265a2e751f4a06ffb}{}\index{Puppy\+::\+Tree@{Puppy\+::\+Tree}!write@{write}}
+\index{write@{write}!Puppy\+::\+Tree@{Puppy\+::\+Tree}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}void Puppy\+::\+Tree\+::write (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{io\+O\+S, }
+\item[{unsigned int}]{in\+Index = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) const}\label{classPuppy_1_1Tree_ae7cf5b8e64273dc265a2e751f4a06ffb}
+
+
+Write G\+P tree at given index as a s-\/expression into a C++ output stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em io\+O\+S} & C++ output stream to write tree into. \\
+\hline
+{\em in\+Index} & Actual node index in tree. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/puppy\+\_\+tree.\+hpp\item 
+source/puppy\+\_\+tree.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,230 @@
+\hypertarget{classWorker}{}\section{Worker Class Reference}
+\label{classWorker}\index{Worker@{Worker}}
+
+
+Inheritance diagram for Worker\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{classWorker__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Worker\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classWorker__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structWorker_1_1fitnessdata}{fitnessdata}
+\item 
+struct \hyperlink{structWorker_1_1OneTree}{One\+Tree}
+\item 
+struct \hyperlink{structWorker_1_1Stats}{Stats}
+\item 
+struct \hyperlink{structWorker_1_1TreeContainer}{Tree\+Container}
+\item 
+struct \hyperlink{structWorker_1_1TreeStruct}{Tree\+Struct}
+\end{DoxyCompactItemize}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classWorker_a4c6b6f22801862ae967df319161af625}{}void {\bfseries do\+Work} ()\label{classWorker_a4c6b6f22801862ae967df319161af625}
+
+\item 
+\hypertarget{classWorker_a2ef295af6e23dd8878f2427e4388591f}{}void {\bfseries Resume\+Requested} ()\label{classWorker_a2ef295af6e23dd8878f2427e4388591f}
+
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classWorker_ae4a138e6c8de2af5733d01024cd50ec6}{}void {\bfseries work\+Requested} ()\label{classWorker_ae4a138e6c8de2af5733d01024cd50ec6}
+
+\item 
+\hypertarget{classWorker_a30fe947e3103e2634af146469bd77db5}{}void {\bfseries value\+Changed} (const Q\+String \&value)\label{classWorker_a30fe947e3103e2634af146469bd77db5}
+
+\item 
+\hypertarget{classWorker_a91359586c82456b3c9d80d574137d7c4}{}void {\bfseries send\+\_\+stats} (\hyperlink{structWorker_1_1Stats}{Worker\+::\+Stats} data)\label{classWorker_a91359586c82456b3c9d80d574137d7c4}
+
+\item 
+\hypertarget{classWorker_a3732ec2fcbfcf0a51d455c7535d64bd1}{}void {\bfseries send\+\_\+stats\+\_\+end} (\hyperlink{structWorker_1_1Stats}{Worker\+::\+Stats} data)\label{classWorker_a3732ec2fcbfcf0a51d455c7535d64bd1}
+
+\item 
+\hypertarget{classWorker_a10bc16920395564f7051fa11993b9b32}{}void {\bfseries send\+\_\+tree} (\hyperlink{structWorker_1_1TreeStruct}{Worker\+::\+Tree\+Struct} data)\label{classWorker_a10bc16920395564f7051fa11993b9b32}
+
+\item 
+\hypertarget{classWorker_a55f2d2f20e208e3f7afd7ce74e241002}{}void {\bfseries progress\+Changed} (const int value)\label{classWorker_a55f2d2f20e208e3f7afd7ce74e241002}
+
+\item 
+\hypertarget{classWorker_af5db6a64c346ffc536852bdd4b907579}{}void {\bfseries G\+Pstarted} (const Q\+String value)\label{classWorker_af5db6a64c346ffc536852bdd4b907579}
+
+\item 
+\hypertarget{classWorker_a6f488c06d62e3ae49bd5af55fc0f7f90}{}void {\bfseries plot3\+D\+Send\+Data} (\hyperlink{structWorker_1_1fitnessdata}{Worker\+::fitnessdata} data)\label{classWorker_a6f488c06d62e3ae49bd5af55fc0f7f90}
+
+\item 
+\hypertarget{classWorker_ae713b051a9447d01ecdd4d6aef0eef9e}{}void {\bfseries send\+Eval\+Func} (unsigned long value)\label{classWorker_ae713b051a9447d01ecdd4d6aef0eef9e}
+
+\item 
+\hypertarget{classWorker_a8b434c0f74618a287aac3dd3de204618}{}void {\bfseries send\+\_\+tree\+\_\+string} (const Q\+String data)\label{classWorker_a8b434c0f74618a287aac3dd3de204618}
+
+\item 
+\hypertarget{classWorker_aadcaa7cdf5c014611db00b7e000868e5}{}void {\bfseries send\+\_\+tree\+\_\+infix\+\_\+string} (const Q\+String data)\label{classWorker_aadcaa7cdf5c014611db00b7e000868e5}
+
+\item 
+\hypertarget{classWorker_ae1dced9d9b9572d03d284a13638df49b}{}void {\bfseries send\+\_\+tree\+\_\+latex\+\_\+string} (const Q\+String data)\label{classWorker_ae1dced9d9b9572d03d284a13638df49b}
+
+\item 
+\hypertarget{classWorker_adfa119799838e68b671be5947a367f4a}{}void {\bfseries finished} ()\label{classWorker_adfa119799838e68b671be5947a367f4a}
+
+\item 
+\hypertarget{classWorker_a4cde48b2f055eb1f13546433a472a0d5}{}void {\bfseries request\+Fitness\+Calc} (const \hyperlink{structWorker_1_1TreeContainer}{Worker\+::\+Tree\+Container} data)\label{classWorker_a4cde48b2f055eb1f13546433a472a0d5}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classWorker_a3290234525f8aad4f10f73305c9d1859}{}{\bfseries Worker} (Q\+Object $\ast$parent=0)\label{classWorker_a3290234525f8aad4f10f73305c9d1859}
+
+\item 
+\hypertarget{classWorker_a7def095438777bfa3c3b7adc3ada8481}{}void {\bfseries request\+Work} ()\label{classWorker_a7def095438777bfa3c3b7adc3ada8481}
+
+\item 
+\hypertarget{classWorker_a6ae95a49a7955d3efd052f27652c563a}{}void {\bfseries abort} ()\label{classWorker_a6ae95a49a7955d3efd052f27652c563a}
+
+\item 
+int \hyperlink{classWorker_a22bc35b7fff1c4cc8deb9a6b0a433c07}{start\+\_\+main} (void)
+\begin{DoxyCompactList}\small\item\em Program main routine. \end{DoxyCompactList}\item 
+\hypertarget{classWorker_a2c4efdf17d01c375f4aa390679827371}{}unsigned int {\bfseries evaluate\+Fitness} (std\+::vector$<$ \hyperlink{classPuppy_1_1Tree}{Puppy\+::\+Tree} $>$ \&io\+Population, \hyperlink{classPuppy_1_1Context}{Puppy\+::\+Context} \&io\+Context, double $\ast$in\+X, double $\ast$in\+F, int cols, int rows, std\+::vector$<$ bool $>$ \&ter\+Selection)\label{classWorker_a2c4efdf17d01c375f4aa390679827371}
+
+\item 
+\hypertarget{classWorker_af5bc25e98c2bb4d6aca90c1de5d3aa9b}{}unsigned int {\bfseries evaluate\+Fitness\+\_\+multithread} (std\+::vector$<$ \hyperlink{classPuppy_1_1Tree}{Puppy\+::\+Tree} $>$ \&io\+Population, \hyperlink{classPuppy_1_1Context}{Puppy\+::\+Context} \&io\+Context, double $\ast$in\+X, double $\ast$in\+F, int cols, int rows, std\+::vector$<$ bool $>$ \&ter\+Selection, bool multithread)\label{classWorker_af5bc25e98c2bb4d6aca90c1de5d3aa9b}
+
+\item 
+\hypertarget{classWorker_a8deae4f62f500e7f7ac353e2a46656f4}{}unsigned int {\bfseries evaluate\+Fitness\+Testing} (\hyperlink{classPuppy_1_1Tree}{Puppy\+::\+Tree} \&individual, \hyperlink{classPuppy_1_1Context}{Puppy\+::\+Context} \&io\+Context, double $\ast$in\+X, double $\ast$in\+F, int cols, int rows, std\+::vector$<$ bool $>$ \&ter\+Selection)\label{classWorker_a8deae4f62f500e7f7ac353e2a46656f4}
+
+\item 
+\hypertarget{classWorker_a26bc4ee37a10f29906f027d611985548}{}unsigned int {\bfseries evaluate\+Fitness\+Training} (\hyperlink{classPuppy_1_1Tree}{Puppy\+::\+Tree} \&individual, \hyperlink{classPuppy_1_1Context}{Puppy\+::\+Context} \&io\+Context, double $\ast$in\+X, double $\ast$in\+F, int cols, int rows, std\+::vector$<$ bool $>$ \&ter\+Selection)\label{classWorker_a26bc4ee37a10f29906f027d611985548}
+
+\item 
+\hypertarget{classWorker_a059d485ed0ff18bfcc245e03ae1f5af8}{}int {\bfseries apply\+L\+S} (\hyperlink{classPuppy_1_1Tree}{Puppy\+::\+Tree} \&individual, \hyperlink{classPuppy_1_1Context}{Puppy\+::\+Context} \&io\+Context, double $\ast$in\+X, double $\ast$in\+F, int cols, int rows, std\+::vector$<$ bool $>$ \&ter\+Selection, float \&ori\+Fit, float \&opt\+Fit)\label{classWorker_a059d485ed0ff18bfcc245e03ae1f5af8}
+
+\item 
+\hypertarget{classWorker_a6c8b8185bb9312134a86c1955f117890}{}void {\bfseries subset\+Data} (double $\ast$input, double $\ast$training, double $\ast$testing, int cols, int rows, int trainsize, int $\ast$index)\label{classWorker_a6c8b8185bb9312134a86c1955f117890}
+
+\item 
+\hypertarget{classWorker_a28d4ce0b0b8b86d4ab84d16c80770121}{}void {\bfseries suspend} ()\label{classWorker_a28d4ce0b0b8b86d4ab84d16c80770121}
+
+\item 
+\hypertarget{classWorker_a4e9811249da41dbc61677682b9e9a4ab}{}void {\bfseries resume} ()\label{classWorker_a4e9811249da41dbc61677682b9e9a4ab}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classWorker_ab2d9bc54fd2a6e31216acf5ac783347e}{}int {\bfseries ngen}\label{classWorker_ab2d9bc54fd2a6e31216acf5ac783347e}
+
+\item 
+\hypertarget{classWorker_a162442451cb8fb6a6044f0b71254836d}{}int {\bfseries popsize}\label{classWorker_a162442451cb8fb6a6044f0b71254836d}
+
+\item 
+\hypertarget{classWorker_a8a60bc5bf3119acbde4bca89dc3eea5d}{}int {\bfseries tournamentsize}\label{classWorker_a8a60bc5bf3119acbde4bca89dc3eea5d}
+
+\item 
+\hypertarget{classWorker_a3b1a8d57d8b0f280dbdf818d38a53168}{}int {\bfseries maxdepth}\label{classWorker_a3b1a8d57d8b0f280dbdf818d38a53168}
+
+\item 
+\hypertarget{classWorker_a6278941636091560e37bdb753e53611b}{}int {\bfseries mininitdepth}\label{classWorker_a6278941636091560e37bdb753e53611b}
+
+\item 
+\hypertarget{classWorker_a37ec4012eddf63f76a0eb3166b32e923}{}int {\bfseries maxinitdepth}\label{classWorker_a37ec4012eddf63f76a0eb3166b32e923}
+
+\item 
+\hypertarget{classWorker_acaeca7f4f5a924a388b403454fd98b35}{}float {\bfseries crossoverp}\label{classWorker_acaeca7f4f5a924a388b403454fd98b35}
+
+\item 
+\hypertarget{classWorker_aec28e1605cef6d1e1916bdb84fb9249b}{}float {\bfseries crossoverdp}\label{classWorker_aec28e1605cef6d1e1916bdb84fb9249b}
+
+\item 
+\hypertarget{classWorker_a7e81ba98fd648c243f5e227656d42eea}{}float {\bfseries mutationp}\label{classWorker_a7e81ba98fd648c243f5e227656d42eea}
+
+\item 
+\hypertarget{classWorker_aebaeae53537a9336e11c9c5a2a961ea6}{}int {\bfseries mutationmaxr}\label{classWorker_aebaeae53537a9336e11c9c5a2a961ea6}
+
+\item 
+\hypertarget{classWorker_a4c0c7f0dc25095839a4e761568d6e6c1}{}int {\bfseries randomseed}\label{classWorker_a4c0c7f0dc25095839a4e761568d6e6c1}
+
+\item 
+\hypertarget{classWorker_a64bf5d8f1d9350b70d366e6a43c39fba}{}double $\ast$ {\bfseries dataset}\label{classWorker_a64bf5d8f1d9350b70d366e6a43c39fba}
+
+\item 
+\hypertarget{classWorker_a05ea9a7a069322b5cd3b80d7c955f1c0}{}int {\bfseries dataset\+\_\+cols}\label{classWorker_a05ea9a7a069322b5cd3b80d7c955f1c0}
+
+\item 
+\hypertarget{classWorker_acbe8642cda2ebfec7cedbd329892e9bf}{}int {\bfseries dataset\+\_\+rows}\label{classWorker_acbe8642cda2ebfec7cedbd329892e9bf}
+
+\item 
+\hypertarget{classWorker_aa832f7af255998292b58f2c6dfb6718e}{}double $\ast$ {\bfseries dataset\+\_\+training}\label{classWorker_aa832f7af255998292b58f2c6dfb6718e}
+
+\item 
+\hypertarget{classWorker_a4692da54491abf6c8119adae498aff57}{}double $\ast$ {\bfseries dataset\+\_\+testing}\label{classWorker_a4692da54491abf6c8119adae498aff57}
+
+\item 
+\hypertarget{classWorker_aa882edd61d31c3d15e6737f54f804f4a}{}int {\bfseries training\+P}\label{classWorker_aa882edd61d31c3d15e6737f54f804f4a}
+
+\item 
+\hypertarget{classWorker_a7dd1dfdc0a74074c82efa5f0d7c32a1e}{}bool {\bfseries L\+Sactivated}\label{classWorker_a7dd1dfdc0a74074c82efa5f0d7c32a1e}
+
+\item 
+\hypertarget{classWorker_a34fec1328c31ba6e844a9a93c8f7cae2}{}bool {\bfseries multicore\+\_\+activated}\label{classWorker_a34fec1328c31ba6e844a9a93c8f7cae2}
+
+\item 
+\hypertarget{classWorker_a70ec9cce22a12a9d582a3596fef6fbf4}{}std\+::vector$<$ bool $>$ {\bfseries terminalselection}\label{classWorker_a70ec9cce22a12a9d582a3596fef6fbf4}
+
+\item 
+\hypertarget{classWorker_a9dc8e869da4a241ee0bda2e10d2259e5}{}std\+::vector$<$ bool $>$ {\bfseries functionselection}\label{classWorker_a9dc8e869da4a241ee0bda2e10d2259e5}
+
+\item 
+\hypertarget{classWorker_a028b694c257b109a56a1fa11cc067cad}{}Q\+Vector$<$ \hyperlink{classPuppy_1_1Tree}{Puppy\+::\+Tree} $>$ {\bfseries fitness\+Valid}\label{classWorker_a028b694c257b109a56a1fa11cc067cad}
+
+\item 
+\hypertarget{classWorker_a63db29e69c7054d2084f3d51981a390e}{}bool {\bfseries fitness\+Valid\+Finished}\label{classWorker_a63db29e69c7054d2084f3d51981a390e}
+
+\item 
+\hypertarget{classWorker_a7ccf6daed284312665431edfb1378d53}{}\hyperlink{structWorker_1_1TreeContainer}{Tree\+Container} {\bfseries whole\+Pop}\label{classWorker_a7ccf6daed284312665431edfb1378d53}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classWorker_a22bc35b7fff1c4cc8deb9a6b0a433c07}{}\index{Worker@{Worker}!start\+\_\+main@{start\+\_\+main}}
+\index{start\+\_\+main@{start\+\_\+main}!Worker@{Worker}}
+\subsubsection[{start\+\_\+main}]{\setlength{\rightskip}{0pt plus 5cm}int Worker\+::start\+\_\+main (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{classWorker_a22bc35b7fff1c4cc8deb9a6b0a433c07}
+
+
+Program main routine. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Number of arguments given on the command-\/line. \\
+\hline
+{\em argv} & Command-\/line arguments. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/worker.\+h\item 
+source/main\+G\+P.\+cpp\item 
+source/worker.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,13 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classPuppy_1_1Primitive.html" title="Genetic programming abstract primitive class.A primitive is an abstract class of terminals and functi..." alt="" coords="5,233,124,260"/>
+<area shape="rect" id="node2" href="$classAdd.html" title="Add two doubles GP primitive. " alt="" coords="221,5,266,32"/>
+<area shape="rect" id="node3" href="$classCos.html" title="Cos" alt="" coords="220,56,267,83"/>
+<area shape="rect" id="node4" href="$classDivide.html" title="Protected division of two doubles GP primitive. " alt="" coords="214,107,273,133"/>
+<area shape="rect" id="node5" href="$classEphemeral.html" title="Ephemeral random constant. " alt="" coords="201,157,285,184"/>
+<area shape="rect" id="node6" href="$classExp.html" title="Exp" alt="" coords="221,208,266,235"/>
+<area shape="rect" id="node7" href="$classLog.html" title="Log" alt="" coords="222,259,265,285"/>
+<area shape="rect" id="node8" href="$classMultiply.html" title="Multiply two doubles GP primitive. " alt="" coords="210,309,277,336"/>
+<area shape="rect" id="node9" href="$classPuppy_1_1TokenT.html" title="Token template, to use as variable terminal primitive. " alt="" coords="172,360,315,387"/>
+<area shape="rect" id="node10" href="$classSin.html" title="Sin" alt="" coords="223,411,264,437"/>
+<area shape="rect" id="node11" href="$classSubtract.html" title="Subtract two doubles GP primitive. " alt="" coords="208,461,279,488"/>
+</map>

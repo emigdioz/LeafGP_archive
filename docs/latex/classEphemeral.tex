@@ -1,0 +1,93 @@
+\hypertarget{classEphemeral}{}\section{Ephemeral Class Reference}
+\label{classEphemeral}\index{Ephemeral@{Ephemeral}}
+
+
+\hyperlink{classEphemeral}{Ephemeral} random constant.  
+
+
+
+
+Inheritance diagram for Ephemeral\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{classEphemeral__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ephemeral\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{classEphemeral__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classEphemeral_ac6c554dd7fc112356dc1794d5579f28e}{}\hyperlink{classEphemeral_ac6c554dd7fc112356dc1794d5579f28e}{Ephemeral} ()\label{classEphemeral_ac6c554dd7fc112356dc1794d5579f28e}
+
+\begin{DoxyCompactList}\small\item\em Construct ephemeral random constant generator primitive. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classEphemeral_a69fb1365baddf81c9f1cd7c35a6bad16}{execute} (void $\ast$out\+Datum, \hyperlink{classPuppy_1_1Context}{Puppy\+::\+Context} \&io\+Context)
+\begin{DoxyCompactList}\small\item\em Dummy function, ephemeral primitive is used only to generate constants. \end{DoxyCompactList}\item 
+virtual \hyperlink{classPuppy_1_1PrimitiveHandle}{Puppy\+::\+Primitive\+Handle} \hyperlink{classEphemeral_a4c8bf775486a868d9011c4b9d93e7547}{give\+Reference} (\hyperlink{classPuppy_1_1Context}{Puppy\+::\+Context} \&io\+Context)
+\begin{DoxyCompactList}\small\item\em Generate random constant and return as primitive handle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{classEphemeral}{Ephemeral} random constant. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classEphemeral_a69fb1365baddf81c9f1cd7c35a6bad16}{}\index{Ephemeral@{Ephemeral}!execute@{execute}}
+\index{execute@{execute}!Ephemeral@{Ephemeral}}
+\subsubsection[{execute}]{\setlength{\rightskip}{0pt plus 5cm}void Ephemeral\+::execute (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{out\+Datum, }
+\item[{{\bf Puppy\+::\+Context} \&}]{io\+Context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classEphemeral_a69fb1365baddf81c9f1cd7c35a6bad16}
+
+
+Dummy function, ephemeral primitive is used only to generate constants. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\+Datum} & Result of the \hyperlink{classDivide}{Divide} operation. \\
+\hline
+{\em io\+Context} & Evolutionary context. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classPuppy_1_1Primitive_aaef85034e66f49903c591158c3b5ffef}{Puppy\+::\+Primitive}.
+
+\hypertarget{classEphemeral_a4c8bf775486a868d9011c4b9d93e7547}{}\index{Ephemeral@{Ephemeral}!give\+Reference@{give\+Reference}}
+\index{give\+Reference@{give\+Reference}!Ephemeral@{Ephemeral}}
+\subsubsection[{give\+Reference}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Primitive\+Handle} Ephemeral\+::give\+Reference (
+\begin{DoxyParamCaption}
+\item[{{\bf Puppy\+::\+Context} \&}]{io\+Context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classEphemeral_a4c8bf775486a868d9011c4b9d93e7547}
+
+
+Generate random constant and return as primitive handle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em io\+Context} & Evolutionary context. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classPuppy_1_1Primitive_a0319f5a18dd42fe96c77c895948acc2a}{Puppy\+::\+Primitive}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/puppy\+\_\+regprimitives.\+hpp\item 
+source/puppy\+\_\+regprimitives.\+cpp\end{DoxyCompactItemize}

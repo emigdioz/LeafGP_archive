@@ -1,0 +1,65 @@
+\hypertarget{namespacePuppy}{}\section{Puppy Namespace Reference}
+\label{namespacePuppy}\index{Puppy@{Puppy}}
+
+
+Namespace of all B\+E\+A\+G\+L\+E \hyperlink{namespacePuppy}{Puppy} G\+P framework classes and global functions.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classPuppy_1_1Context}{Context}
+\begin{DoxyCompactList}\small\item\em Evolutionary context.
+
+The evolutionary context includes the execution context used when interpreting the trees along with the problem set-\/up defined with the function and terminal set, and the randomizer. \end{DoxyCompactList}\item 
+struct \hyperlink{structPuppy_1_1Node}{Node}
+\begin{DoxyCompactList}\small\item\em G\+P tree node structure. \end{DoxyCompactList}\item 
+class \hyperlink{classPuppy_1_1Primitive}{Primitive}
+\begin{DoxyCompactList}\small\item\em Genetic programming abstract primitive class.
+
+A primitive is an abstract class of terminals and functions that can be used in a G\+P program. Concrete primitives must define method execute, which define the characteristic operation to execute. Primitives are generally heap allocated (with a call to the new operator) and managed by the associated smart pointer defined in class \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle}. \end{DoxyCompactList}\item 
+class \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle}
+\begin{DoxyCompactList}\small\item\em Smart pointer to a primitive.
+
+\hyperlink{classPuppy_1_1Primitive}{Primitive} handle defines a smart pointer to a primitive. It behaves much like a standard pointer, but it also call the appriate refer and unrefer methods of class primitive. \end{DoxyCompactList}\item 
+class \hyperlink{classPuppy_1_1Randomizer}{Randomizer}
+\begin{DoxyCompactList}\small\item\em Random number generator. C++ wrapper over standard C rand and srand functions. \end{DoxyCompactList}\item 
+class \hyperlink{classPuppy_1_1TokenT}{Token\+T}
+\begin{DoxyCompactList}\small\item\em Token template, to use as variable terminal primitive. \end{DoxyCompactList}\item 
+class \hyperlink{classPuppy_1_1Tree}{Tree}
+\begin{DoxyCompactList}\small\item\em G\+P tree class.
+
+The evolutionary context includes the execution context used when interpreting the trees along with the problem set-\/up defined with the function and terminal set, and the randomizer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__Puppy_gaaef144c802e721c9f3ef0a53b8728d3d}{calculate\+Stats} (const std\+::vector$<$ \hyperlink{classPuppy_1_1Tree}{Tree} $>$ \&in\+Population, unsigned int in\+Generation, Q\+String \&io\+O\+S, double \&best\+\_\+fit, int \&best\+\_\+index, double \&avg\+Size, double \&max\+Size, double \&min\+Size)
+\begin{DoxyCompactList}\small\item\em Calculate statistics for the actual population and display results to output stream. \end{DoxyCompactList}\item 
+void \hyperlink{group__Puppy_ga3ae29733ace7314f669f288e6f2d4a8d}{apply\+Crossover} (std\+::vector$<$ \hyperlink{classPuppy_1_1Tree}{Tree} $>$ \&io\+Population, \hyperlink{classPuppy_1_1Context}{Context} \&io\+Context, float in\+Mating\+Proba=0.\+9, float in\+Distrib\+Proba=0.\+9, unsigned int in\+Max\+Tree\+Depth=17)
+\begin{DoxyCompactList}\small\item\em Apply sub-\/tree crossover operation on a population of G\+P trees. \end{DoxyCompactList}\item 
+void \hyperlink{group__Puppy_gac9ce564e7c3a601bc7cb9f39def4cfc4}{exchange\+Sub\+Trees} (\hyperlink{classPuppy_1_1Tree}{Tree} \&io\+Tree1, unsigned int in\+Node1, const std\+::vector$<$ unsigned int $>$ \&in\+Stack1, \hyperlink{classPuppy_1_1Tree}{Tree} \&io\+Tree2, unsigned int in\+Node2, const std\+::vector$<$ unsigned int $>$ \&in\+Stack2)
+\begin{DoxyCompactList}\small\item\em Exchange two sub-\/trees. \end{DoxyCompactList}\item 
+void \hyperlink{group__Puppy_gae78df624fa96e33eaf9896ae00ea13cd}{mate\+Trees} (\hyperlink{classPuppy_1_1Tree}{Tree} \&io\+Tree1, \hyperlink{classPuppy_1_1Tree}{Tree} \&io\+Tree2, \hyperlink{classPuppy_1_1Context}{Context} \&io\+Context, float in\+Distrib\+Proba=0.\+9, unsigned int in\+Max\+Tree\+Depth=17)
+\begin{DoxyCompactList}\small\item\em Mate two G\+P trees for crossover. \end{DoxyCompactList}\item 
+void \hyperlink{group__Puppy_ga965ce68758651c3b9cf03db03799f709}{initialize\+Population} (std\+::vector$<$ \hyperlink{classPuppy_1_1Tree}{Tree} $>$ \&io\+Population, \hyperlink{classPuppy_1_1Context}{Context} \&io\+Context, float in\+Init\+Grow\+Proba=0.\+5, unsigned int in\+Min\+Depth=2, unsigned int in\+Max\+Depth=5)
+\begin{DoxyCompactList}\small\item\em Initialize ramped half-\/and-\/half a population of G\+P trees. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{group__Puppy_ga0039778b0dbe47bcf5889d6587f75536}{initialize\+Tree\+Full} (\hyperlink{classPuppy_1_1Tree}{Tree} \&io\+Tree, \hyperlink{classPuppy_1_1Context}{Context} \&io\+Context, unsigned int in\+Depth)
+\begin{DoxyCompactList}\small\item\em Initialize a G\+P tree with full approach. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{group__Puppy_gac4bc47167b30efa18c41f039b00d4b66}{initialize\+Tree\+Grow} (\hyperlink{classPuppy_1_1Tree}{Tree} \&io\+Tree, \hyperlink{classPuppy_1_1Context}{Context} \&io\+Context, unsigned int in\+Min\+Depth, unsigned int in\+Max\+Depth)
+\begin{DoxyCompactList}\small\item\em Initialize a G\+P tree with grow approach. \end{DoxyCompactList}\item 
+void \hyperlink{group__Puppy_gae96197fb941007acd222f578815270ff}{apply\+Mutation\+Standard} (std\+::vector$<$ \hyperlink{classPuppy_1_1Tree}{Tree} $>$ \&io\+Population, \hyperlink{classPuppy_1_1Context}{Context} \&io\+Context, float in\+Mutation\+Proba=0.\+05, unsigned int in\+Max\+Regen\+Depth=5, unsigned int in\+Max\+Depth=17)
+\begin{DoxyCompactList}\small\item\em Apply standard (Koza\textquotesingle{}s) mutation to a population of G\+P trees. \end{DoxyCompactList}\item 
+void \hyperlink{group__Puppy_ga169b89be413e3893bb96392b8c06fca9}{mutate\+Standard} (\hyperlink{classPuppy_1_1Tree}{Tree} \&io\+Tree, \hyperlink{classPuppy_1_1Context}{Context} \&io\+Context, unsigned int in\+Max\+Regen\+Depth, unsigned int in\+Max\+Depth)
+\begin{DoxyCompactList}\small\item\em Apply standard (Koza\textquotesingle{}s) mutation on a G\+P trees. \end{DoxyCompactList}\item 
+void \hyperlink{group__Puppy_ga5c961ca57a2b983b762d9b1733642cf0}{apply\+Mutation\+Swap} (std\+::vector$<$ \hyperlink{classPuppy_1_1Tree}{Tree} $>$ \&io\+Population, \hyperlink{classPuppy_1_1Context}{Context} \&io\+Context, float in\+Mutation\+Proba=0.\+05, float in\+Distrib\+Proba=0.\+5)
+\begin{DoxyCompactList}\small\item\em Apply swap point mutation to a population of G\+P trees. \end{DoxyCompactList}\item 
+void \hyperlink{group__Puppy_gab2879a2766d6a1dc22304f39d502656f}{mutate\+Swap} (\hyperlink{classPuppy_1_1Tree}{Tree} \&io\+Tree, \hyperlink{classPuppy_1_1Context}{Context} \&io\+Context, float in\+Distrib\+Proba)
+\begin{DoxyCompactList}\small\item\em Swap mutate a G\+P tree. \end{DoxyCompactList}\item 
+void \hyperlink{group__Puppy_gaf6abed44ba1d792876575211a238e317}{apply\+Selection\+Tournament} (std\+::vector$<$ \hyperlink{classPuppy_1_1Tree}{Tree} $>$ \&io\+Population, \hyperlink{classPuppy_1_1Context}{Context} \&io\+Context, unsigned int in\+Number\+Participants=2)
+\begin{DoxyCompactList}\small\item\em Apply tournament selection to a population of trees. \end{DoxyCompactList}\item 
+void \hyperlink{group__Puppy_gacdee177409bac54392b16bc8ba2f630b}{apply\+Selection\+Roulette} (std\+::vector$<$ \hyperlink{classPuppy_1_1Tree}{Tree} $>$ \&io\+Population, \hyperlink{classPuppy_1_1Context}{Context} \&io\+Context)
+\begin{DoxyCompactList}\small\item\em Apply roulette proportional selection to a population of trees. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Namespace of all B\+E\+A\+G\+L\+E \hyperlink{namespacePuppy}{Puppy} G\+P framework classes and global functions. 

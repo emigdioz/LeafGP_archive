@@ -1,0 +1,293 @@
+\hypertarget{classPuppy_1_1Primitive}{}\section{Puppy\+:\+:Primitive Class Reference}
+\label{classPuppy_1_1Primitive}\index{Puppy\+::\+Primitive@{Puppy\+::\+Primitive}}
+
+
+Genetic programming abstract primitive class.
+
+A primitive is an abstract class of terminals and functions that can be used in a G\+P program. Concrete primitives must define method execute, which define the characteristic operation to execute. Primitives are generally heap allocated (with a call to the new operator) and managed by the associated smart pointer defined in class \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle}.  
+
+
+
+
+Inheritance diagram for Puppy\+:\+:Primitive\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPuppy_1_1Primitive__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Puppy\+:\+:Primitive\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{classPuppy_1_1Primitive__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPuppy_1_1Primitive_a17fd0027a0723bcb35b98f1b43eebeb6}{Primitive} (unsigned int in\+Number\+Arguments=0, std\+::string in\+Name=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Construct a primitive. \end{DoxyCompactList}\item 
+\hyperlink{classPuppy_1_1Primitive_a3b3d62da2d801dd5c1e7d6dd532bf45d}{Primitive} (const \hyperlink{classPuppy_1_1Primitive}{Primitive} \&in\+Right\+Primit)
+\begin{DoxyCompactList}\small\item\em Copy-\/construct a primitive. \end{DoxyCompactList}\item 
+\hyperlink{classPuppy_1_1Primitive}{Primitive} \& \hyperlink{classPuppy_1_1Primitive_a6b93a819ffca6451f44babace6df562a}{operator=} (const \hyperlink{classPuppy_1_1Primitive}{Primitive} \&in\+Right\+Primit)
+\begin{DoxyCompactList}\small\item\em Copy a primitive. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classPuppy_1_1Primitive_aaef85034e66f49903c591158c3b5ffef}{execute} (void $\ast$out\+Datum, \hyperlink{classPuppy_1_1Context}{Context} \&io\+Context)=0
+\begin{DoxyCompactList}\small\item\em Execute the caracteristic primitive operation. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classPuppy_1_1Primitive_a54739a2bb20095ba3a870d5a0f40ce97}{get\+Name} () const 
+\begin{DoxyCompactList}\small\item\em Get the name of the primitive. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{classPuppy_1_1Primitive_abddcfecae834ed4ad1e4ef0f21c4a3ff}{get\+Number\+Arguments} () const 
+\begin{DoxyCompactList}\small\item\em Get the number of arguments of the primitive. \end{DoxyCompactList}\item 
+virtual \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle} \hyperlink{classPuppy_1_1Primitive_a0319f5a18dd42fe96c77c895948acc2a}{give\+Reference} (\hyperlink{classPuppy_1_1Context}{Context} \&io\+Context)
+\begin{DoxyCompactList}\small\item\em Give a reference on the actual primitive. \end{DoxyCompactList}\item 
+\hyperlink{classPuppy_1_1Primitive}{Primitive} $\ast$ \hyperlink{classPuppy_1_1Primitive_abc05de8e8a0d2106ae78637a4785a46d}{refer} ()
+\begin{DoxyCompactList}\small\item\em Increments the reference counter and returns a pointer to the actual primitive. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classPuppy_1_1Primitive_a2cd429caecd22c31166230b3467fb861}{set\+Value} (const void $\ast$in\+Value)
+\begin{DoxyCompactList}\small\item\em Set the value of the primitive (do nothing for basic primitive). \end{DoxyCompactList}\item 
+\hypertarget{classPuppy_1_1Primitive_aa8d8f10165e9f6d8cfa158be32e00a79}{}void \hyperlink{classPuppy_1_1Primitive_aa8d8f10165e9f6d8cfa158be32e00a79}{unrefer} ()\label{classPuppy_1_1Primitive_aa8d8f10165e9f6d8cfa158be32e00a79}
+
+\begin{DoxyCompactList}\small\item\em Decrement the reference counter and deletes the actual primitive if it reaches zero. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classPuppy_1_1Primitive_a908bba73fb1b2df6c708c0235381bbac}{get\+Argument} (unsigned int in\+N, void $\ast$out\+Result, \hyperlink{classPuppy_1_1Context}{Context} \&io\+Context)
+\begin{DoxyCompactList}\small\item\em Get the value of the nth argument. \end{DoxyCompactList}\item 
+void \hyperlink{classPuppy_1_1Primitive_ae371fdd5d7c917f5fe0826e08f04ad11}{set\+Name} (std\+::string in\+Name)
+\begin{DoxyCompactList}\small\item\em Set the name of the primitive. \end{DoxyCompactList}\item 
+void \hyperlink{classPuppy_1_1Primitive_a11bb487496584214eb627bf6ae03fad2}{set\+Number\+Arguments} (unsigned int in\+Number\+Arguments)
+\begin{DoxyCompactList}\small\item\em Set the number of arguments of the primitive. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Genetic programming abstract primitive class.
+
+A primitive is an abstract class of terminals and functions that can be used in a G\+P program. Concrete primitives must define method execute, which define the characteristic operation to execute. Primitives are generally heap allocated (with a call to the new operator) and managed by the associated smart pointer defined in class \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classPuppy_1_1Primitive_a17fd0027a0723bcb35b98f1b43eebeb6}{}\index{Puppy\+::\+Primitive@{Puppy\+::\+Primitive}!Primitive@{Primitive}}
+\index{Primitive@{Primitive}!Puppy\+::\+Primitive@{Puppy\+::\+Primitive}}
+\subsubsection[{Primitive}]{\setlength{\rightskip}{0pt plus 5cm}Puppy\+::\+Primitive\+::\+Primitive (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{in\+Number\+Arguments = {\ttfamily 0}, }
+\item[{std\+::string}]{in\+Name = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{classPuppy_1_1Primitive_a17fd0027a0723bcb35b98f1b43eebeb6}
+
+
+Construct a primitive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Number\+Arguments} & Number of arguments of the primitive. \\
+\hline
+{\em in\+Name} & Name of the primitive. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPuppy_1_1Primitive_a3b3d62da2d801dd5c1e7d6dd532bf45d}{}\index{Puppy\+::\+Primitive@{Puppy\+::\+Primitive}!Primitive@{Primitive}}
+\index{Primitive@{Primitive}!Puppy\+::\+Primitive@{Puppy\+::\+Primitive}}
+\subsubsection[{Primitive}]{\setlength{\rightskip}{0pt plus 5cm}Puppy\+::\+Primitive\+::\+Primitive (
+\begin{DoxyParamCaption}
+\item[{const {\bf Primitive} \&}]{in\+Right\+Primit}
+\end{DoxyParamCaption}
+)}\label{classPuppy_1_1Primitive_a3b3d62da2d801dd5c1e7d6dd532bf45d}
+
+
+Copy-\/construct a primitive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Right\+Primit} & \hyperlink{classPuppy_1_1Primitive}{Primitive} to copy. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classPuppy_1_1Primitive_aaef85034e66f49903c591158c3b5ffef}{}\index{Puppy\+::\+Primitive@{Puppy\+::\+Primitive}!execute@{execute}}
+\index{execute@{execute}!Puppy\+::\+Primitive@{Puppy\+::\+Primitive}}
+\subsubsection[{execute}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Puppy\+::\+Primitive\+::execute (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{out\+Datum, }
+\item[{{\bf Context} \&}]{io\+Context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classPuppy_1_1Primitive_aaef85034e66f49903c591158c3b5ffef}
+
+
+Execute the caracteristic primitive operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\+Datum} & Result of the execution. \\
+\hline
+{\em io\+Context} & Evolutionary context. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classEphemeral_a69fb1365baddf81c9f1cd7c35a6bad16}{Ephemeral}, \hyperlink{classExp_af04e8771ab5a8b572779d0703efa2736}{Exp}, \hyperlink{classLog_a0f034cdf9ef168f4ee556e24934519ab}{Log}, \hyperlink{classCos_ae797f1f97801e6a64e4bded4f4f4f263}{Cos}, \hyperlink{classSin_a52e8e8096eb90f30418dc74e0a89a1ec}{Sin}, \hyperlink{classDivide_af5ed152cd9a4e65141a59ef78307e87f}{Divide}, \hyperlink{classMultiply_a965412103b5dadd21ed4d58c8d6c6d87}{Multiply}, \hyperlink{classSubtract_a7b85b95cd90fe9633ba684802343d2e2}{Subtract}, \hyperlink{classPuppy_1_1TokenT_a15641f373da2d98c057247c32deb943a}{Puppy\+::\+Token\+T$<$ T $>$}, and \hyperlink{classAdd_a5f17154064fd521553352f114db35018}{Add}.
+
+\hypertarget{classPuppy_1_1Primitive_a908bba73fb1b2df6c708c0235381bbac}{}\index{Puppy\+::\+Primitive@{Puppy\+::\+Primitive}!get\+Argument@{get\+Argument}}
+\index{get\+Argument@{get\+Argument}!Puppy\+::\+Primitive@{Puppy\+::\+Primitive}}
+\subsubsection[{get\+Argument}]{\setlength{\rightskip}{0pt plus 5cm}void Puppy\+::\+Primitive\+::get\+Argument (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{in\+N, }
+\item[{void $\ast$}]{out\+Result, }
+\item[{{\bf Puppy\+::\+Context} \&}]{io\+Context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classPuppy_1_1Primitive_a908bba73fb1b2df6c708c0235381bbac}
+
+
+Get the value of the nth argument. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+N} & Index of the argument to get. \\
+\hline
+{\em out\+Result} & Value of the nth argument. \\
+\hline
+{\em io\+Context} & Evolutionary context. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPuppy_1_1Primitive_a54739a2bb20095ba3a870d5a0f40ce97}{}\index{Puppy\+::\+Primitive@{Puppy\+::\+Primitive}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Puppy\+::\+Primitive@{Puppy\+::\+Primitive}}
+\subsubsection[{get\+Name}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Puppy\+::\+Primitive\+::get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1Primitive_a54739a2bb20095ba3a870d5a0f40ce97}
+
+
+Get the name of the primitive. 
+
+\begin{DoxyReturn}{Returns}
+Name of the primitive. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1Primitive_abddcfecae834ed4ad1e4ef0f21c4a3ff}{}\index{Puppy\+::\+Primitive@{Puppy\+::\+Primitive}!get\+Number\+Arguments@{get\+Number\+Arguments}}
+\index{get\+Number\+Arguments@{get\+Number\+Arguments}!Puppy\+::\+Primitive@{Puppy\+::\+Primitive}}
+\subsubsection[{get\+Number\+Arguments}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Puppy\+::\+Primitive\+::get\+Number\+Arguments (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1Primitive_abddcfecae834ed4ad1e4ef0f21c4a3ff}
+
+
+Get the number of arguments of the primitive. 
+
+\begin{DoxyReturn}{Returns}
+Number of arguments of the primitive. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1Primitive_a0319f5a18dd42fe96c77c895948acc2a}{}\index{Puppy\+::\+Primitive@{Puppy\+::\+Primitive}!give\+Reference@{give\+Reference}}
+\index{give\+Reference@{give\+Reference}!Puppy\+::\+Primitive@{Puppy\+::\+Primitive}}
+\subsubsection[{give\+Reference}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Puppy\+::\+Primitive\+Handle} Puppy\+::\+Primitive\+::give\+Reference (
+\begin{DoxyParamCaption}
+\item[{{\bf Puppy\+::\+Context} \&}]{io\+Context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPuppy_1_1Primitive_a0319f5a18dd42fe96c77c895948acc2a}
+
+
+Give a reference on the actual primitive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em io\+Context} & Evolutionary context. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classPuppy_1_1Primitive}{Primitive} handle to this pointer. 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classEphemeral_a4c8bf775486a868d9011c4b9d93e7547}{Ephemeral}.
+
+\hypertarget{classPuppy_1_1Primitive_a6b93a819ffca6451f44babace6df562a}{}\index{Puppy\+::\+Primitive@{Puppy\+::\+Primitive}!operator=@{operator=}}
+\index{operator=@{operator=}!Puppy\+::\+Primitive@{Puppy\+::\+Primitive}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Puppy\+::\+Primitive} \& Puppy\+::\+Primitive\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Primitive} \&}]{in\+Right\+Primit}
+\end{DoxyParamCaption}
+)}\label{classPuppy_1_1Primitive_a6b93a819ffca6451f44babace6df562a}
+
+
+Copy a primitive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Right\+Primit} & \hyperlink{classPuppy_1_1Primitive}{Primitive} to copy. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPuppy_1_1Primitive_abc05de8e8a0d2106ae78637a4785a46d}{}\index{Puppy\+::\+Primitive@{Puppy\+::\+Primitive}!refer@{refer}}
+\index{refer@{refer}!Puppy\+::\+Primitive@{Puppy\+::\+Primitive}}
+\subsubsection[{refer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Puppy\+::\+Primitive} $\ast$ Puppy\+::\+Primitive\+::refer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1Primitive_abc05de8e8a0d2106ae78637a4785a46d}
+
+
+Increments the reference counter and returns a pointer to the actual primitive. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the actual primitive. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1Primitive_ae371fdd5d7c917f5fe0826e08f04ad11}{}\index{Puppy\+::\+Primitive@{Puppy\+::\+Primitive}!set\+Name@{set\+Name}}
+\index{set\+Name@{set\+Name}!Puppy\+::\+Primitive@{Puppy\+::\+Primitive}}
+\subsubsection[{set\+Name}]{\setlength{\rightskip}{0pt plus 5cm}void Puppy\+::\+Primitive\+::set\+Name (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{in\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classPuppy_1_1Primitive_ae371fdd5d7c917f5fe0826e08f04ad11}
+
+
+Set the name of the primitive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Name} & Name of the primitive. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPuppy_1_1Primitive_a11bb487496584214eb627bf6ae03fad2}{}\index{Puppy\+::\+Primitive@{Puppy\+::\+Primitive}!set\+Number\+Arguments@{set\+Number\+Arguments}}
+\index{set\+Number\+Arguments@{set\+Number\+Arguments}!Puppy\+::\+Primitive@{Puppy\+::\+Primitive}}
+\subsubsection[{set\+Number\+Arguments}]{\setlength{\rightskip}{0pt plus 5cm}void Puppy\+::\+Primitive\+::set\+Number\+Arguments (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{in\+Number\+Arguments}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classPuppy_1_1Primitive_a11bb487496584214eb627bf6ae03fad2}
+
+
+Set the number of arguments of the primitive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Number\+Arguments} & Number of arguments of the primitive. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPuppy_1_1Primitive_a2cd429caecd22c31166230b3467fb861}{}\index{Puppy\+::\+Primitive@{Puppy\+::\+Primitive}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Puppy\+::\+Primitive@{Puppy\+::\+Primitive}}
+\subsubsection[{set\+Value}]{\setlength{\rightskip}{0pt plus 5cm}void Puppy\+::\+Primitive\+::set\+Value (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{in\+Value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPuppy_1_1Primitive_a2cd429caecd22c31166230b3467fb861}
+
+
+Set the value of the primitive (do nothing for basic primitive). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Value} & New value to use. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classPuppy_1_1TokenT_ad38ced7ce46e1ef1449bd90560296f3f}{Puppy\+::\+Token\+T$<$ T $>$}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/puppy\+\_\+primitive.\+hpp\item 
+source/puppy\+\_\+primitive.\+cpp\item 
+source/puppy\+\_\+primitiveinline.\+hpp\end{DoxyCompactItemize}

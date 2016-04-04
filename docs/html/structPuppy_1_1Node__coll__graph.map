@@ -1,0 +1,3 @@
+<map id="Puppy::Node" name="Puppy::Node">
+<area shape="rect" id="node2" href="$classPuppy_1_1PrimitiveHandle.html" title="Smart pointer to a primitive.Primitive handle defines a smart pointer to a primitive. It behaves much like a standard pointer, but it also call the appriate refer and unrefer methods of class primitive. " alt="" coords="5,5,164,229"/>
+</map>

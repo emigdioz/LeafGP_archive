@@ -1,0 +1,121 @@
+\hypertarget{classPuppy_1_1Randomizer}{}\section{Puppy\+:\+:Randomizer Class Reference}
+\label{classPuppy_1_1Randomizer}\index{Puppy\+::\+Randomizer@{Puppy\+::\+Randomizer}}
+
+
+Random number generator. C++ wrapper over standard C rand and srand functions.  
+
+
+
+
+Collaboration diagram for Puppy\+:\+:Randomizer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{classPuppy_1_1Randomizer__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned long \hyperlink{classPuppy_1_1Randomizer_a5eb79b633ba7cb009cce593a34dc8e27}{operator()} (unsigned long in\+N)
+\begin{DoxyCompactList}\small\item\em Generate a randomly generated integer in range \mbox{[}0,in\+N). \end{DoxyCompactList}\item 
+long \hyperlink{classPuppy_1_1Randomizer_ad1086e7ea63f1fd0cbf077001963a3bc}{roll\+Integer} (long in\+Low, long in\+Up)
+\begin{DoxyCompactList}\small\item\em Generate a randomly generated integer in range \mbox{[}in\+Low,in\+Up\mbox{]}. \end{DoxyCompactList}\item 
+double \hyperlink{classPuppy_1_1Randomizer_aa5dd7d1aa93080943275b0e56634f2ea}{roll\+Uniform} (double in\+Low=0.\+0, double in\+Up=1.\+0)
+\begin{DoxyCompactList}\small\item\em Generate a uniformly generated random real number in range \mbox{[}in\+Low,in\+Up). \end{DoxyCompactList}\item 
+void \hyperlink{classPuppy_1_1Randomizer_a46771ed34b2950edb092327db06bbe7f}{seed} (unsigned long in\+Seed=0)
+\begin{DoxyCompactList}\small\item\em Initialize the random number generator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Random number generator. C++ wrapper over standard C rand and srand functions. 
+
+\begin{DoxyParagraph}{Note\+:}
+The operator() allow compliance with the S\+T\+L random number generator interface. 
+\end{DoxyParagraph}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classPuppy_1_1Randomizer_a5eb79b633ba7cb009cce593a34dc8e27}{}\index{Puppy\+::\+Randomizer@{Puppy\+::\+Randomizer}!operator()@{operator()}}
+\index{operator()@{operator()}!Puppy\+::\+Randomizer@{Puppy\+::\+Randomizer}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long Puppy\+::\+Randomizer\+::operator() (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{in\+N}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1Randomizer_a5eb79b633ba7cb009cce593a34dc8e27}
+
+
+Generate a randomly generated integer in range \mbox{[}0,in\+N). 
+
+\begin{DoxyReturn}{Returns}
+Randomly generated integer. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1Randomizer_ad1086e7ea63f1fd0cbf077001963a3bc}{}\index{Puppy\+::\+Randomizer@{Puppy\+::\+Randomizer}!roll\+Integer@{roll\+Integer}}
+\index{roll\+Integer@{roll\+Integer}!Puppy\+::\+Randomizer@{Puppy\+::\+Randomizer}}
+\subsubsection[{roll\+Integer}]{\setlength{\rightskip}{0pt plus 5cm}long Puppy\+::\+Randomizer\+::roll\+Integer (
+\begin{DoxyParamCaption}
+\item[{long}]{in\+Low, }
+\item[{long}]{in\+Up}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1Randomizer_ad1086e7ea63f1fd0cbf077001963a3bc}
+
+
+Generate a randomly generated integer in range \mbox{[}in\+Low,in\+Up\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Low} & Lower bound of generation range. \\
+\hline
+{\em in\+Up} & Upper bound of generation range. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Randomly generated integer. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1Randomizer_aa5dd7d1aa93080943275b0e56634f2ea}{}\index{Puppy\+::\+Randomizer@{Puppy\+::\+Randomizer}!roll\+Uniform@{roll\+Uniform}}
+\index{roll\+Uniform@{roll\+Uniform}!Puppy\+::\+Randomizer@{Puppy\+::\+Randomizer}}
+\subsubsection[{roll\+Uniform}]{\setlength{\rightskip}{0pt plus 5cm}double Puppy\+::\+Randomizer\+::roll\+Uniform (
+\begin{DoxyParamCaption}
+\item[{double}]{in\+Low = {\ttfamily 0.0}, }
+\item[{double}]{in\+Up = {\ttfamily 1.0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1Randomizer_aa5dd7d1aa93080943275b0e56634f2ea}
+
+
+Generate a uniformly generated random real number in range \mbox{[}in\+Low,in\+Up). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Low} & Lower bound of generation range. \\
+\hline
+{\em in\+Up} & Upper bound of generation range. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Randomly generated real number. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1Randomizer_a46771ed34b2950edb092327db06bbe7f}{}\index{Puppy\+::\+Randomizer@{Puppy\+::\+Randomizer}!seed@{seed}}
+\index{seed@{seed}!Puppy\+::\+Randomizer@{Puppy\+::\+Randomizer}}
+\subsubsection[{seed}]{\setlength{\rightskip}{0pt plus 5cm}void Puppy\+::\+Randomizer\+::seed (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{in\+Seed = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1Randomizer_a46771ed34b2950edb092327db06bbe7f}
+
+
+Initialize the random number generator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Seed} & Seed to use. If zero, C\+P\+U clock value is used. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Randomly generated integer. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/puppy\+\_\+randomizer.\+hpp\end{DoxyCompactItemize}

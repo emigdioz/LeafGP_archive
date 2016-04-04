@@ -1,0 +1,48 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>./resources/images/icon.png</file>
+        <file>./resources/images/data_normal.png</file>
+        <file>./resources/images/data_selected.png</file>
+        <file>./resources/images/gp_normal.png</file>
+        <file>./resources/images/gp_selected.png</file>
+        <file>./resources/images/result_normal.png</file>
+        <file>./resources/images/result_selected.png</file>
+        <file>./resources/images/setup_normal.png</file>
+        <file>./resources/images/setup_selected.png</file>
+        <file>./resources/images/pause_disabled.png</file>
+        <file>./resources/images/pause_normal.png</file>
+        <file>./resources/images/pause_selected.png</file>
+        <file>./resources/images/start_disabled.png</file>
+        <file>./resources/images/start_normal.png</file>
+        <file>./resources/images/start_selected.png</file>
+        <file>./resources/images/stop_disabled.png</file>
+        <file>./resources/images/stop_normal.png</file>
+        <file>./resources/images/stop_selected.png</file>
+        <file>./resources/images/add_normal.png</file>
+        <file>./resources/images/add_selected.png</file>
+        <file>./resources/images/cos_normal.png</file>
+        <file>./resources/images/cos_selected.png</file>
+        <file>./resources/images/divide_normal.png</file>
+        <file>./resources/images/divide_selected.png</file>
+        <file>./resources/images/exp_normal.png</file>
+        <file>./resources/images/exp_selected.png</file>
+        <file>./resources/images/log_normal.png</file>
+        <file>./resources/images/log_selected.png</file>
+        <file>./resources/images/multiply_normal.png</file>
+        <file>./resources/images/multiply_selected.png</file>
+        <file>./resources/images/sin_normal.png</file>
+        <file>./resources/images/sin_selected.png</file>
+        <file>./resources/images/substract_normal.png</file>
+        <file>./resources/images/substract_selected.png</file>
+        <file>./resources/images/down_arrow.png</file>
+        <file>./resources/images/up_arrow.png</file>
+        <file>./resources/images/icon_app</file>
+        <file>./resources/images/icon_app_big</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file>./resources/fonts/Dosis-Medium.ttf</file>
+    </qresource>
+    <qresource prefix="/others">
+        <file>./resources/ROYAL.MAP</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,319 @@
+\hypertarget{classPuppy_1_1PrimitiveHandle}{}\section{Puppy\+:\+:Primitive\+Handle Class Reference}
+\label{classPuppy_1_1PrimitiveHandle}\index{Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}}
+
+
+Smart pointer to a primitive.
+
+\hyperlink{classPuppy_1_1Primitive}{Primitive} handle defines a smart pointer to a primitive. It behaves much like a standard pointer, but it also call the appriate refer and unrefer methods of class primitive.  
+
+
+
+
+Collaboration diagram for Puppy\+:\+:Primitive\+Handle\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{classPuppy_1_1PrimitiveHandle__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classPuppy_1_1PrimitiveHandle_afc2b75ba067b8030f997dfd1577ad189}{}\hyperlink{classPuppy_1_1PrimitiveHandle_afc2b75ba067b8030f997dfd1577ad189}{Primitive\+Handle} ()\label{classPuppy_1_1PrimitiveHandle_afc2b75ba067b8030f997dfd1577ad189}
+
+\begin{DoxyCompactList}\small\item\em Construct a N\+U\+L\+L pointing primitive smart \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle}. \end{DoxyCompactList}\item 
+\hyperlink{classPuppy_1_1PrimitiveHandle_adfe32a81fdb0ff32a4bc9be018944531}{Primitive\+Handle} (const \hyperlink{classPuppy_1_1Primitive}{Primitive} $\ast$in\+Primit\+Ptr)
+\begin{DoxyCompactList}\small\item\em Construct a primitive smart pointer that refer to the object pointed given. \end{DoxyCompactList}\item 
+\hyperlink{classPuppy_1_1PrimitiveHandle_aa512ff37494d12d450b61814827939b3}{Primitive\+Handle} (const \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle} \&in\+Primitive\+Handle)
+\begin{DoxyCompactList}\small\item\em Copy construct a primitive smart pointer. \end{DoxyCompactList}\item 
+\hypertarget{classPuppy_1_1PrimitiveHandle_a8554d88db5964a0a6b125360c97efc44}{}\hyperlink{classPuppy_1_1PrimitiveHandle_a8554d88db5964a0a6b125360c97efc44}{$\sim$\+Primitive\+Handle} ()\label{classPuppy_1_1PrimitiveHandle_a8554d88db5964a0a6b125360c97efc44}
+
+\begin{DoxyCompactList}\small\item\em Destruct a primitive smart pointer by unrefering the pointed object. \end{DoxyCompactList}\item 
+\hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle} \& \hyperlink{classPuppy_1_1PrimitiveHandle_a1aaf940a337bebe97f80aa4d7fe9d451}{operator=} (const \hyperlink{classPuppy_1_1Primitive}{Primitive} $\ast$in\+Primit\+Ptr)
+\begin{DoxyCompactList}\small\item\em Affect the actual \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle} to an object \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle}. \end{DoxyCompactList}\item 
+\hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle} \& \hyperlink{classPuppy_1_1PrimitiveHandle_ad35a2449566fb91ff70feca52cc9a738}{operator=} (const \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle} \&in\+Primitive\+Handle)
+\begin{DoxyCompactList}\small\item\em Affect the actual pointer to another smart pointer. \end{DoxyCompactList}\item 
+\hyperlink{classPuppy_1_1Primitive}{Primitive} \& \hyperlink{classPuppy_1_1PrimitiveHandle_ada654223700c4b57e63a338804ac3c9f}{operator$\ast$} ()
+\begin{DoxyCompactList}\small\item\em Get reference the primitive pointed. \end{DoxyCompactList}\item 
+const \hyperlink{classPuppy_1_1Primitive}{Primitive} \& \hyperlink{classPuppy_1_1PrimitiveHandle_a265e0c2a791fd2deef5b543f5ccc2e44}{operator$\ast$} () const 
+\begin{DoxyCompactList}\small\item\em Get constant reference the primitive pointed. \end{DoxyCompactList}\item 
+\hyperlink{classPuppy_1_1Primitive}{Primitive} $\ast$ \hyperlink{classPuppy_1_1PrimitiveHandle_a64dbf49fabd8c7cd499ed44d1c77c718}{operator-\/$>$} ()
+\begin{DoxyCompactList}\small\item\em Get reference the primitive pointed. \end{DoxyCompactList}\item 
+const \hyperlink{classPuppy_1_1Primitive}{Primitive} $\ast$ \hyperlink{classPuppy_1_1PrimitiveHandle_a96bc2d4e05e7456402dab94954e3aa19}{operator-\/$>$} () const 
+\begin{DoxyCompactList}\small\item\em Get constant reference the primitive pointed. \end{DoxyCompactList}\item 
+bool \hyperlink{classPuppy_1_1PrimitiveHandle_ae4a43e20e9fed246e3ccf4db0a2a4821}{operator!} () const 
+\begin{DoxyCompactList}\small\item\em Test whether the pointer is N\+U\+L\+L or not. \end{DoxyCompactList}\item 
+bool \hyperlink{classPuppy_1_1PrimitiveHandle_a79bbe9c55a986778965a63c1e3c39f7b}{operator==} (const \hyperlink{classPuppy_1_1Primitive}{Primitive} $\ast$in\+Primit\+Ptr) const 
+\begin{DoxyCompactList}\small\item\em Compare a smart pointer to a primitive pointer. \end{DoxyCompactList}\item 
+bool \hyperlink{classPuppy_1_1PrimitiveHandle_ad9ec731cb2abe6248499ea2e8d273c31}{operator==} (const \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle} \&in\+Primitive\+Handle) const 
+\begin{DoxyCompactList}\small\item\em Compare two primitive smart pointer. \end{DoxyCompactList}\item 
+bool \hyperlink{classPuppy_1_1PrimitiveHandle_a378f6a3e812a17eb7405edeebec0403d}{operator!=} (const \hyperlink{classPuppy_1_1Primitive}{Primitive} $\ast$in\+Primit\+Ptr) const 
+\begin{DoxyCompactList}\small\item\em Compare a smart pointer to a primitive pointer. \end{DoxyCompactList}\item 
+bool \hyperlink{classPuppy_1_1PrimitiveHandle_a58698eef8cf454f72eeadc62da386558}{operator!=} (const \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle} \&in\+Primitive\+Handle) const 
+\begin{DoxyCompactList}\small\item\em Compare two smart Primitive\+Handles. \end{DoxyCompactList}\item 
+\hyperlink{classPuppy_1_1Primitive}{Primitive} $\ast$ \hyperlink{classPuppy_1_1PrimitiveHandle_a058132aa2eb92bbc05fc03a62431103e}{get\+Pointer} ()
+\begin{DoxyCompactList}\small\item\em Return pointer to the referenced primitive. \end{DoxyCompactList}\item 
+const \hyperlink{classPuppy_1_1Primitive}{Primitive} $\ast$ \hyperlink{classPuppy_1_1PrimitiveHandle_a2a90e66dd41ca18f4937eceb523cb572}{get\+Pointer} () const 
+\begin{DoxyCompactList}\small\item\em Return constant pointer to the referenced primitive. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Smart pointer to a primitive.
+
+\hyperlink{classPuppy_1_1Primitive}{Primitive} handle defines a smart pointer to a primitive. It behaves much like a standard pointer, but it also call the appriate refer and unrefer methods of class primitive. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classPuppy_1_1PrimitiveHandle_adfe32a81fdb0ff32a4bc9be018944531}{}\index{Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}!Primitive\+Handle@{Primitive\+Handle}}
+\index{Primitive\+Handle@{Primitive\+Handle}!Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}}
+\subsubsection[{Primitive\+Handle}]{\setlength{\rightskip}{0pt plus 5cm}Puppy\+::\+Primitive\+Handle\+::\+Primitive\+Handle (
+\begin{DoxyParamCaption}
+\item[{const {\bf Primitive} $\ast$}]{in\+Primit\+Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1PrimitiveHandle_adfe32a81fdb0ff32a4bc9be018944531}
+
+
+Construct a primitive smart pointer that refer to the object pointed given. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Primit\+Ptr} & Pointer to the object to be referenced. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPuppy_1_1PrimitiveHandle_aa512ff37494d12d450b61814827939b3}{}\index{Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}!Primitive\+Handle@{Primitive\+Handle}}
+\index{Primitive\+Handle@{Primitive\+Handle}!Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}}
+\subsubsection[{Primitive\+Handle}]{\setlength{\rightskip}{0pt plus 5cm}Puppy\+::\+Primitive\+Handle\+::\+Primitive\+Handle (
+\begin{DoxyParamCaption}
+\item[{const {\bf Primitive\+Handle} \&}]{in\+Primitive\+Handle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1PrimitiveHandle_aa512ff37494d12d450b61814827939b3}
+
+
+Copy construct a primitive smart pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Primitive\+Handle} & Smart \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle} to copy. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classPuppy_1_1PrimitiveHandle_a058132aa2eb92bbc05fc03a62431103e}{}\index{Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}!get\+Pointer@{get\+Pointer}}
+\index{get\+Pointer@{get\+Pointer}!Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}}
+\subsubsection[{get\+Pointer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Puppy\+::\+Primitive} $\ast$ Puppy\+::\+Primitive\+Handle\+::get\+Pointer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1PrimitiveHandle_a058132aa2eb92bbc05fc03a62431103e}
+
+
+Return pointer to the referenced primitive. 
+
+\begin{DoxyReturn}{Returns}
+C++ pointer to the primitive. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1PrimitiveHandle_a2a90e66dd41ca18f4937eceb523cb572}{}\index{Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}!get\+Pointer@{get\+Pointer}}
+\index{get\+Pointer@{get\+Pointer}!Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}}
+\subsubsection[{get\+Pointer}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Puppy\+::\+Primitive} $\ast$ Puppy\+::\+Primitive\+Handle\+::get\+Pointer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1PrimitiveHandle_a2a90e66dd41ca18f4937eceb523cb572}
+
+
+Return constant pointer to the referenced primitive. 
+
+\begin{DoxyReturn}{Returns}
+Constant C++ pointer to the primitive. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1PrimitiveHandle_ae4a43e20e9fed246e3ccf4db0a2a4821}{}\index{Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}!operator"!@{operator"!}}
+\index{operator"!@{operator"!}!Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}}
+\subsubsection[{operator"!}]{\setlength{\rightskip}{0pt plus 5cm}bool Puppy\+::\+Primitive\+Handle\+::operator! (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1PrimitiveHandle_ae4a43e20e9fed246e3ccf4db0a2a4821}
+
+
+Test whether the pointer is N\+U\+L\+L or not. 
+
+\begin{DoxyReturn}{Returns}
+True if the pointer is N\+U\+L\+L, false if it is not. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1PrimitiveHandle_a378f6a3e812a17eb7405edeebec0403d}{}\index{Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}}
+\subsubsection[{operator"!=}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Puppy\+::\+Primitive\+Handle\+::operator!}= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Primitive} $\ast$}]{in\+Primit\+Ptr}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1PrimitiveHandle_a378f6a3e812a17eb7405edeebec0403d}
+
+
+Compare a smart pointer to a primitive pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Primit\+Ptr} & Right hand side primitive pointer to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+False if they both refer to the same object (or are both N\+U\+L\+L), true if not. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1PrimitiveHandle_a58698eef8cf454f72eeadc62da386558}{}\index{Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}}
+\subsubsection[{operator"!=}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Puppy\+::\+Primitive\+Handle\+::operator!}= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Primitive\+Handle} \&}]{in\+Primitive\+Handle}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1PrimitiveHandle_a58698eef8cf454f72eeadc62da386558}
+
+
+Compare two smart Primitive\+Handles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Primitive\+Handle} & Right hand side smart \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle} to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+False if they both refer to the same object (or are both N\+U\+L\+L), true if not. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1PrimitiveHandle_ada654223700c4b57e63a338804ac3c9f}{}\index{Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Puppy\+::\+Primitive} \& Puppy\+::\+Primitive\+Handle\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1PrimitiveHandle_ada654223700c4b57e63a338804ac3c9f}
+
+
+Get reference the primitive pointed. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the primitive pointed. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1PrimitiveHandle_a265e0c2a791fd2deef5b543f5ccc2e44}{}\index{Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Puppy\+::\+Primitive} \& Puppy\+::\+Primitive\+Handle\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1PrimitiveHandle_a265e0c2a791fd2deef5b543f5ccc2e44}
+
+
+Get constant reference the primitive pointed. 
+
+\begin{DoxyReturn}{Returns}
+Constant reference to the primitive pointed. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1PrimitiveHandle_a64dbf49fabd8c7cd499ed44d1c77c718}{}\index{Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}}
+\subsubsection[{operator-\/$>$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Puppy\+::\+Primitive} $\ast$ Puppy\+::\+Primitive\+Handle\+::operator-\/$>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1PrimitiveHandle_a64dbf49fabd8c7cd499ed44d1c77c718}
+
+
+Get reference the primitive pointed. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle} to the object pointed. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1PrimitiveHandle_a96bc2d4e05e7456402dab94954e3aa19}{}\index{Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}}
+\subsubsection[{operator-\/$>$}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Puppy\+::\+Primitive} $\ast$ Puppy\+::\+Primitive\+Handle\+::operator-\/$>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1PrimitiveHandle_a96bc2d4e05e7456402dab94954e3aa19}
+
+
+Get constant reference the primitive pointed. 
+
+\begin{DoxyReturn}{Returns}
+Constant pointer to the primitive pointed. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1PrimitiveHandle_a1aaf940a337bebe97f80aa4d7fe9d451}{}\index{Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}!operator=@{operator=}}
+\index{operator=@{operator=}!Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Puppy\+::\+Primitive\+Handle} \& Puppy\+::\+Primitive\+Handle\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Primitive} $\ast$}]{in\+Primit\+Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1PrimitiveHandle_a1aaf940a337bebe97f80aa4d7fe9d451}
+
+
+Affect the actual \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle} to an object \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Primit\+Ptr} & \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle} to the object to refer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Actual smart \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle}. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1PrimitiveHandle_ad35a2449566fb91ff70feca52cc9a738}{}\index{Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}!operator=@{operator=}}
+\index{operator=@{operator=}!Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Puppy\+::\+Primitive\+Handle} \& Puppy\+::\+Primitive\+Handle\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Primitive\+Handle} \&}]{in\+Primitive\+Handle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1PrimitiveHandle_ad35a2449566fb91ff70feca52cc9a738}
+
+
+Affect the actual pointer to another smart pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Primitive\+Handle} & Smart pointer to copy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Actual smart pointer. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1PrimitiveHandle_a79bbe9c55a986778965a63c1e3c39f7b}{}\index{Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}!operator==@{operator==}}
+\index{operator==@{operator==}!Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Puppy\+::\+Primitive\+Handle\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Primitive} $\ast$}]{in\+Primit\+Ptr}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1PrimitiveHandle_a79bbe9c55a986778965a63c1e3c39f7b}
+
+
+Compare a smart pointer to a primitive pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Primit\+Ptr} & Right hand side primitive pointer to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if they both refer to the same object (or are both N\+U\+L\+L), false if not. 
+\end{DoxyReturn}
+\hypertarget{classPuppy_1_1PrimitiveHandle_ad9ec731cb2abe6248499ea2e8d273c31}{}\index{Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}!operator==@{operator==}}
+\index{operator==@{operator==}!Puppy\+::\+Primitive\+Handle@{Puppy\+::\+Primitive\+Handle}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Puppy\+::\+Primitive\+Handle\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Primitive\+Handle} \&}]{in\+Primitive\+Handle}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1PrimitiveHandle_ad9ec731cb2abe6248499ea2e8d273c31}
+
+
+Compare two primitive smart pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Primitive\+Handle} & Right hand side smart pointer to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if they both refer to the same object (or are both N\+U\+L\+L), false if not. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/puppy\+\_\+primitivehandle.\+hpp\item 
+source/puppy\+\_\+primitiveinline.\+hpp\end{DoxyCompactItemize}

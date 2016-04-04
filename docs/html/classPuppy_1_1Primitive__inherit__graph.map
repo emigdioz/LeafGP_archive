@@ -1,0 +1,12 @@
+<map id="Puppy::Primitive" name="Puppy::Primitive">
+<area shape="rect" id="node2" href="$classAdd.html" title="Add two doubles GP primitive. " alt="" coords="5,336,93,443"/>
+<area shape="rect" id="node3" href="$classCos.html" title="{Cos\n||+ Cos()\l+ ~Cos()\l+ execute()\l}" alt="" coords="117,336,205,443"/>
+<area shape="rect" id="node4" href="$classDivide.html" title="Protected division of two doubles GP primitive. " alt="" coords="229,336,317,443"/>
+<area shape="rect" id="node5" href="$classEphemeral.html" title="Ephemeral random constant. " alt="" coords="342,329,469,450"/>
+<area shape="rect" id="node6" href="$classExp.html" title="{Exp\n||+ Exp()\l+ ~Exp()\l+ execute()\l}" alt="" coords="493,336,581,443"/>
+<area shape="rect" id="node7" href="$classLog.html" title="{Log\n||+ Log()\l+ ~Log()\l+ execute()\l}" alt="" coords="605,336,693,443"/>
+<area shape="rect" id="node8" href="$classMultiply.html" title="Multiply two doubles GP primitive. " alt="" coords="718,336,813,443"/>
+<area shape="rect" id="node9" href="$classPuppy_1_1TokenT.html" title="Token template, to use as variable terminal primitive. " alt="" coords="837,321,979,457"/>
+<area shape="rect" id="node10" href="$classSin.html" title="{Sin\n||+ Sin()\l+ ~Sin()\l+ execute()\l}" alt="" coords="1004,336,1092,443"/>
+<area shape="rect" id="node11" href="$classSubtract.html" title="Subtract two doubles GP primitive. " alt="" coords="1116,336,1215,443"/>
+</map>

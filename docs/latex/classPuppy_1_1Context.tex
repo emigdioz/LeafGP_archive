@@ -1,0 +1,80 @@
+\hypertarget{classPuppy_1_1Context}{}\section{Puppy\+:\+:Context Class Reference}
+\label{classPuppy_1_1Context}\index{Puppy\+::\+Context@{Puppy\+::\+Context}}
+
+
+Evolutionary context.
+
+The evolutionary context includes the execution context used when interpreting the trees along with the problem set-\/up defined with the function and terminal set, and the randomizer.  
+
+
+
+
+Collaboration diagram for Puppy\+:\+:Context\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{classPuppy_1_1Context__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classPuppy_1_1Context_aac8cb79c11fb01a719665573dbe2401b}{}\hyperlink{classPuppy_1_1Context_aac8cb79c11fb01a719665573dbe2401b}{Context} ()\label{classPuppy_1_1Context_aac8cb79c11fb01a719665573dbe2401b}
+
+\begin{DoxyCompactList}\small\item\em Build an evolutionary context. \end{DoxyCompactList}\item 
+void \hyperlink{classPuppy_1_1Context_a8faebd159ee947f837755a6bbc7bccbb}{insert} (\hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle} in\+Primitive)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classAdd}{Add} a new primitive in the sets of primitive. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classPuppy_1_1Context_af2256bb8abbf0ba324dfff53a4595dca}{}\hyperlink{classPuppy_1_1Randomizer}{Randomizer} \hyperlink{classPuppy_1_1Context_af2256bb8abbf0ba324dfff53a4595dca}{m\+Random}\label{classPuppy_1_1Context_af2256bb8abbf0ba324dfff53a4595dca}
+
+\begin{DoxyCompactList}\small\item\em Random number generator. \end{DoxyCompactList}\item 
+\hypertarget{classPuppy_1_1Context_a3bdbacd226f2ee69b613fc1537c4da92}{}std\+::vector$<$ \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle} $>$ \hyperlink{classPuppy_1_1Context_a3bdbacd226f2ee69b613fc1537c4da92}{m\+Function\+Set}\label{classPuppy_1_1Context_a3bdbacd226f2ee69b613fc1537c4da92}
+
+\begin{DoxyCompactList}\small\item\em Set of functions usable to build trees. \end{DoxyCompactList}\item 
+\hypertarget{classPuppy_1_1Context_abd8b7bfb706eb01ccc4e46e78a41385a}{}std\+::vector$<$ \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle} $>$ \hyperlink{classPuppy_1_1Context_abd8b7bfb706eb01ccc4e46e78a41385a}{m\+Terminal\+Set}\label{classPuppy_1_1Context_abd8b7bfb706eb01ccc4e46e78a41385a}
+
+\begin{DoxyCompactList}\small\item\em Set of terminals usable to build trees. \end{DoxyCompactList}\item 
+\hypertarget{classPuppy_1_1Context_ac5f0006c4d7f3362ee83d0330c50fa70}{}std\+::map$<$ std\+::string, \hyperlink{classPuppy_1_1PrimitiveHandle}{Primitive\+Handle} $>$ \hyperlink{classPuppy_1_1Context_ac5f0006c4d7f3362ee83d0330c50fa70}{m\+Primitive\+Map}\label{classPuppy_1_1Context_ac5f0006c4d7f3362ee83d0330c50fa70}
+
+\begin{DoxyCompactList}\small\item\em Name-\/primitive map. \end{DoxyCompactList}\item 
+\hypertarget{classPuppy_1_1Context_ac26d2fb60125a52a9443c2de815690b2}{}std\+::vector$<$ unsigned int $>$ \hyperlink{classPuppy_1_1Context_ac26d2fb60125a52a9443c2de815690b2}{m\+Call\+Stack}\label{classPuppy_1_1Context_ac26d2fb60125a52a9443c2de815690b2}
+
+\begin{DoxyCompactList}\small\item\em Execution call stack. \end{DoxyCompactList}\item 
+\hypertarget{classPuppy_1_1Context_a1e226fd8032307e3fb213bf04cc72b0e}{}\hyperlink{classPuppy_1_1Tree}{Tree} $\ast$ \hyperlink{classPuppy_1_1Context_a1e226fd8032307e3fb213bf04cc72b0e}{m\+Tree}\label{classPuppy_1_1Context_a1e226fd8032307e3fb213bf04cc72b0e}
+
+\begin{DoxyCompactList}\small\item\em Actual tree evaluated. \end{DoxyCompactList}\item 
+\hypertarget{classPuppy_1_1Context_abfdb04c41a8a1c6389bd018b44d84fe5}{}bool {\bfseries use\+L\+S}\label{classPuppy_1_1Context_abfdb04c41a8a1c6389bd018b44d84fe5}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Evolutionary context.
+
+The evolutionary context includes the execution context used when interpreting the trees along with the problem set-\/up defined with the function and terminal set, and the randomizer. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classPuppy_1_1Context_a8faebd159ee947f837755a6bbc7bccbb}{}\index{Puppy\+::\+Context@{Puppy\+::\+Context}!insert@{insert}}
+\index{insert@{insert}!Puppy\+::\+Context@{Puppy\+::\+Context}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}void Puppy\+::\+Context\+::insert (
+\begin{DoxyParamCaption}
+\item[{{\bf Primitive\+Handle}}]{in\+Primitive}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classPuppy_1_1Context_a8faebd159ee947f837755a6bbc7bccbb}
+
+
+\hyperlink{classAdd}{Add} a new primitive in the sets of primitive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Primitive} & \hyperlink{classPuppy_1_1Primitive}{Primitive} added. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/puppy\+\_\+context.\+hpp\end{DoxyCompactItemize}
