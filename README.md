@@ -11,7 +11,7 @@ License as published by the Free Software Foundation; either version 2 of the li
 Contact:
 Posgrado de Ciencias de la Ingenieria
 
-Instituto Tecnologico de Tijuana
+Instituto Tecnologico de Tijuana, Mexico
 
 [Tree-Lab](http://www.tree-lab.org) research group
 
@@ -26,3 +26,11 @@ It is highly advised to use QtCreator to compile this program, as it is easier a
 Using QtCreator >3.4, open .pro file and configure the project to the user needs. Setup the output compiling path for debug and release modes. Use build option to compile and generate executable.
 
 Please note that the release mode incorporates pre-processor optimization options.
+
+## Disclosure
+LeafGP contains either original or modified code from the following software (license type)
+- BEAGLE Puppy (LGPL 2.1)
+- Levmar (GPL 3.0)
+- Jkqtmathtext (LGPL 2.1)
+- Qcustomplot (GPL 3.0)
+- Qwt3Dplot (zlib)
