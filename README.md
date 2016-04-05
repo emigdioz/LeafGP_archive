@@ -37,4 +37,4 @@ LeafGP contains either original or modified code from the following software (li
 - Qcustomplot (GPL 3.0)
 - Qwt3Dplot (zlib)
 
-[sc1]: https://github.com/emigdioz/LeafGP/resources/LeafGP.png "LeafGP screenshot"
+[sc1]: https://github.com/emigdioz/LeafGP/tree/master/resources/LeafGP.png "LeafGP screenshot"
