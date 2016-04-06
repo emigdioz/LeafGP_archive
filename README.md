@@ -29,7 +29,9 @@ Using QtCreator >3.4, open .pro file and configure the project to the user needs
 
 Please note that the release mode incorporates pre-processor optimization options.
 
-## Disclosure
+Note: Currently tested in Ubuntu only (15.10)
+
+## Disclaimer
 LeafGP contains either original or modified code from the following software (license type)
 - BEAGLE Puppy (LGPL 2.1)
 - Levmar (GPL 3.0)
