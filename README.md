@@ -1,3 +1,5 @@
+## Deprecated version. Is not maintained anymore.
+
 # LeafGP
 ###### Visual GP Modeling Tool
 
